@@ -5,10 +5,10 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "Task")
+@Table(name = "task")
 public class Task {
 
     @Getter
@@ -16,22 +16,22 @@ public class Task {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "taskId")
+    @Column(name = "id")
     private String id;
 
     @Getter
     @Setter
-    @Column(name = "taskTitle")
+    @Column(name = "title")
     private String title;
 
     @Getter
     @Setter
-    @Column(name = "taskDescription")
+    @Column(name = "description")
     private String description;
 
     @Getter
     @Setter
-    @Column(name = "taskDate")
-    private Date date;
+    @Column(name = "date_of_creation")
+    private LocalDate date;
 
 }
