@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface TaskDAO {
 
-    Task read(String id);
+    Task read(long id);
 
     void update(Task task);
 

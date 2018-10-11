@@ -1,5 +1,6 @@
 package com.spring.as;
 
+import com.spring.as.dao.TaskDAO;
 import com.spring.as.dao.TaskDAOImpl;
 import com.spring.as.entity.Task;
 import org.springframework.boot.SpringApplication;
@@ -19,7 +20,7 @@ public class Application {
         t.setTitle("Learn Hibernate");
         t.setDescription("Be best");
         t.setDate(LocalDate.now());
-        TaskDAOImpl taskDAO = new TaskDAOImpl();
+        TaskDAO taskDAO = new TaskDAOImpl();
         taskDAO.create(t);
 
         SpringApplication.run(Application.class, args);

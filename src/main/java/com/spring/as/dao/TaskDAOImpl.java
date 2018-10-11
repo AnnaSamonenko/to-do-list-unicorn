@@ -16,7 +16,7 @@ public class TaskDAOImpl implements TaskDAO {
     private EntityManager em = emf.createEntityManager();
 
     @Override
-    public Task read(String id) {
+    public Task read(long id) {
         return null;
     }
 
