@@ -14,10 +14,10 @@ public class Task {
     @Getter
     @Setter
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
     @Column(name = "id")
-    private String id;
+    private long id;
 
     @Getter
     @Setter
@@ -33,5 +33,4 @@ public class Task {
     @Setter
     @Column(name = "date_of_creation")
     private LocalDate date;
-
 }
