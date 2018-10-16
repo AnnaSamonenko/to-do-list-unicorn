@@ -14,7 +14,6 @@ import java.util.List;
 public class TaskDAOImpl implements TaskDAO {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("config-unit");
-    private EntityManager em = emf.createEntityManager();
 
     @Override
     public TaskDTO read(long id) {
@@ -27,6 +26,7 @@ public class TaskDAOImpl implements TaskDAO {
 
     @Override
     public void create(TaskDTO taskDTO) {
+        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(taskDTO);
         em.getTransaction().commit();
@@ -39,6 +39,7 @@ public class TaskDAOImpl implements TaskDAO {
     }
 
     public List<TaskDTO> getAllTasks() {
+        EntityManager em = emf.createEntityManager();
         Query query = em.createQuery("SELECT t FROM TaskDTO t");
         return (ArrayList<TaskDTO>) query.getResultList();
     }
