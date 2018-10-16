@@ -1,9 +1,13 @@
 package com.spring.as.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class TaskController {
-    // TODO: display contend of table
-    // TODO: add html page for adding data
+
+    @GetMapping("/index")
+    String home() {
+        return "index";
+    }
 }

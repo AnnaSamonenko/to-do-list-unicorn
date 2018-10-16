@@ -5,11 +5,12 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "task")
-public class Task {
+public class TaskDTO implements Serializable {
 
     @Getter
     @Setter

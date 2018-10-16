@@ -1,12 +1,13 @@
 package com.spring.as.dao;
 
-import com.spring.as.entity.Task;
+import com.spring.as.entity.TaskDTO;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -16,18 +17,18 @@ public class TaskDAOImpl implements TaskDAO {
     private EntityManager em = emf.createEntityManager();
 
     @Override
-    public Task read(long id) {
+    public TaskDTO read(long id) {
         return null;
     }
 
     @Override
-    public void update(Task task) {
+    public void update(TaskDTO taskDTO) {
     }
 
     @Override
-    public void create(Task task) {
+    public void create(TaskDTO taskDTO) {
         em.getTransaction().begin();
-        em.persist(task);
+        em.persist(taskDTO);
         em.getTransaction().commit();
         em.close();
     }
@@ -37,8 +38,9 @@ public class TaskDAOImpl implements TaskDAO {
 
     }
 
-    @Override
-    public List<Task> getAllTasks() {
-        return null;
+    public List<TaskDTO> getAllTasks() {
+        EntityManager entitymanager = emf.createEntityManager();
+        Query query = entitymanager.createQuery("SELECT t FROM TaskDTO t");
+        return (ArrayList<TaskDTO>) query.getResultList();
     }
 }

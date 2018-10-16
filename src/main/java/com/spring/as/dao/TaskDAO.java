@@ -1,19 +1,19 @@
 package com.spring.as.dao;
 
-import com.spring.as.entity.Task;
+import com.spring.as.entity.TaskDTO;
 
 import java.util.List;
 
 public interface TaskDAO {
 
-    Task read(long id);
+    TaskDTO read(long id);
 
-    void update(Task task);
+    void update(TaskDTO taskDTO);
 
-    void create(Task task);
+    void create(TaskDTO taskDTO);
 
     void delete(String id);
 
-    List<Task> getAllTasks();
+    List<TaskDTO> getAllTasks();
 
 }
