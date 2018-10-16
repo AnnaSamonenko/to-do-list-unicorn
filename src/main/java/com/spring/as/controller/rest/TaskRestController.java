@@ -3,10 +3,9 @@ package com.spring.as.controller.rest;
 import com.spring.as.entity.TaskDTO;
 import com.spring.as.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -17,8 +16,13 @@ public class TaskRestController {
     TaskService taskService;
 
     @GetMapping("/all")
-    List<TaskDTO> home() {
+    List<TaskDTO> getAll() {
         return taskService.getAllTasks();
+    }
+
+    @PostMapping("/add")
+    void create(@RequestParam("title") String title, @RequestParam("description") String description) {
+        taskService.createTask(new TaskDTO(title, description));
     }
 
 }

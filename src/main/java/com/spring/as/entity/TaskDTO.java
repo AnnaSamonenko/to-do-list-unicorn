@@ -34,4 +34,13 @@ public class TaskDTO implements Serializable {
     @Setter
     @Column(name = "date_of_creation")
     private LocalDate date;
+
+    public TaskDTO() {
+    }
+
+    public TaskDTO(String title, String description) {
+        this.title = title;
+        this.description = description;
+        date = getDate();
+    }
 }

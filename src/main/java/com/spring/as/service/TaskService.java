@@ -16,4 +16,8 @@ public class TaskService {
     public List<TaskDTO> getAllTasks() {
         return taskDAO.getAllTasks();
     }
+
+    public void createTask(TaskDTO taskDTO) {
+        taskDAO.create(taskDTO);
+    }
 }
