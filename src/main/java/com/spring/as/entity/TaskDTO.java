@@ -41,6 +41,5 @@ public class TaskDTO implements Serializable {
     public TaskDTO(String title, String description) {
         this.title = title;
         this.description = description;
-        date = getDate();
     }
 }

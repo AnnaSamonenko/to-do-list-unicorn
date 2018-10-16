@@ -5,6 +5,7 @@ import com.spring.as.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -20,8 +21,9 @@ public class TaskRestController {
     }
 
     @PostMapping("/add")
-    void create(@RequestParam("title") String title, @RequestParam("description") String description) {
-        taskService.createTask(new TaskDTO(title, description));
+    void create(@RequestBody TaskDTO taskDTO) {
+        taskDTO.setDate(LocalDate.now());
+        taskService.createTask(taskDTO);
     }
 
 }
