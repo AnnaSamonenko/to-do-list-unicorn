@@ -12,7 +12,7 @@ public interface TaskDAO {
 
     void create(TaskDTO taskDTO);
 
-    void delete(String id);
+    void delete(long id);
 
     List<TaskDTO> getAllTasks();
 

@@ -17,11 +17,17 @@ public class TaskDAOImpl implements TaskDAO {
 
     @Override
     public TaskDTO read(long id) {
-        return null;
+        EntityManager em = emf.createEntityManager();
+        return em.find(TaskDTO.class, id);
     }
 
     @Override
     public void update(TaskDTO taskDTO) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.merge(taskDTO);
+        em.getTransaction().commit();
+        em.close();
     }
 
     @Override
@@ -34,8 +40,13 @@ public class TaskDAOImpl implements TaskDAO {
     }
 
     @Override
-    public void delete(String id) {
-
+    public void delete(long id) {
+        EntityManager em = emf.createEntityManager();
+        TaskDTO task = em.find(TaskDTO.class, id);
+        em.getTransaction().begin();
+        em.remove(task);
+        em.getTransaction().commit();
+        em.close();
     }
 
     public List<TaskDTO> getAllTasks() {
