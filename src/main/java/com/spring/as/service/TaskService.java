@@ -20,4 +20,9 @@ public class TaskService {
     public void createTask(TaskDTO taskDTO) {
         taskDAO.create(taskDTO);
     }
+
+    public TaskDTO getTask(long id) {
+        return taskDAO.read(id);
+    }
+
 }

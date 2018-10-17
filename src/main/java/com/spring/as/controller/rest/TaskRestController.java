@@ -26,4 +26,9 @@ public class TaskRestController {
         taskService.createTask(taskDTO);
     }
 
+    @GetMapping("/{id}")
+    TaskDTO get(@PathVariable("id") long id) {
+        return taskService.getTask(id);
+    }
+
 }
