@@ -5,19 +5,18 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "task")
-public class TaskDTO implements Serializable {
+public class TaskDTO {
 
     @Getter
     @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
-    @Column(name = "id")
+    @Column(name = "task_id")
     private long id;
 
     @Getter
@@ -34,6 +33,12 @@ public class TaskDTO implements Serializable {
     @Setter
     @Column(name = "date_of_creation")
     private LocalDate date;
+
+    @Getter
+    @Setter
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "project_id", nullable = false)
+    private ProjectDTO project;
 
     public TaskDTO() {
     }
