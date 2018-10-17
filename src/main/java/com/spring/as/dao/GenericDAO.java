@@ -10,4 +10,8 @@ public interface GenericDAO<T> {
 
     List<T> getAll();
 
+    void update(T t);
+
+    void create(T t);
+
 }

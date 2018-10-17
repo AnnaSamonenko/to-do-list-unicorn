@@ -1,5 +1,5 @@
-# Simple project for studying Spring Boot.
-1. Display contend of table(Task) - done.
-2. Add html page for adding data.
-3. Implement crud methods for Task table.
-4. Add styles.
+# Simple project for studying Spring Boot:
+1. Add styles(Bootstrap).
+2. Add registration page.
+3. Add registration logic(service, controller).
+4. Add html page for adding data.

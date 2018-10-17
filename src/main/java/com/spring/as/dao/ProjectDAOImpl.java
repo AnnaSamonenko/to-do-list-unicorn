@@ -4,10 +4,10 @@ import com.spring.as.entity.ProjectDTO;
 
 import java.util.List;
 
-public class ProjectDAOImpl implements ProjectDAO {
+public class ProjectDAOImpl implements GenericDAO<ProjectDTO> {
 
     @Override
-    public Object read(long id) {
+    public ProjectDTO read(long id) {
         return null;
     }
 

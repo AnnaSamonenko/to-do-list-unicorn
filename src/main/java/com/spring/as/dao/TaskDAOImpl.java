@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class TaskDAOImpl implements TaskDAO {
+public class TaskDAOImpl implements GenericDAO<TaskDTO> {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("config-unit");
 

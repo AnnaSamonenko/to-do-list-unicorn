@@ -4,10 +4,10 @@ import com.spring.as.entity.UserDTO;
 
 import java.util.List;
 
-public class UserDAOImpl implements UserDAO {
+public class UserDAOImpl implements GenericDAO<UserDTO> {
 
     @Override
-    public Object read(long id) {
+    public UserDTO read(long id) {
         return null;
     }
 
@@ -23,7 +23,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void update(UserDTO u) {
-        
+
     }
 
     @Override

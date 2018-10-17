@@ -3,6 +3,8 @@
 
     <persistence-unit name="config-unit">
         <class>com.spring.as.entity.TaskDTO</class>
+        <class>com.spring.as.entity.ProjectDTO</class>
+        <class>com.spring.as.entity.UserDTO</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
