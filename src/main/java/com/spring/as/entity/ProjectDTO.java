@@ -26,10 +26,6 @@ public class ProjectDTO {
 
     @Getter
     @Setter
-    private List<ProjectDTO> subProjects;
-
-    @Getter
-    @Setter
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "project")
     private List<TaskDTO> tasks;
 
