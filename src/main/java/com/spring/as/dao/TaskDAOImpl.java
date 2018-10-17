@@ -49,7 +49,7 @@ public class TaskDAOImpl implements TaskDAO {
         em.close();
     }
 
-    public List<TaskDTO> getAllTasks() {
+    public List<TaskDTO> getAll() {
         EntityManager em = emf.createEntityManager();
         Query query = em.createQuery("SELECT t FROM TaskDTO t");
         return (ArrayList<TaskDTO>) query.getResultList();
