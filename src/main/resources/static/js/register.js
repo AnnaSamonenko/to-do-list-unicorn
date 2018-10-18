@@ -11,9 +11,8 @@ $(document).ready(function () {
         }),
         timeout : 100000,
         success : function(response) {
-         },
+        },
         error : function(e) {
-        alert("ERROR: ", e);
         }
         });
     });

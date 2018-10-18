@@ -11,11 +11,6 @@ public class MainController {
         return "tasks";
     }
 
-    @GetMapping("/")
-    String home() {
-        return "home";
-    }
-
     @GetMapping("/registration")
     String register() {
         return "registration";
