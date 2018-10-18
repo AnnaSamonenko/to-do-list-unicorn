@@ -11,7 +11,6 @@ $(document).ready(function () {
         }),
         timeout : 100000,
         success : function(response) {
-        alert(response);
          },
         error : function(e) {
         alert("ERROR: ", e);
