@@ -16,13 +16,13 @@ $(document).ready(function () {
 
     // add data to db
     $("button.add_task").click(function () {
-        var form = $("<form></form>");
-        form.append('Title: <input type="text" name="title"><br>' +
-            'Description: <input type="text" name="description"><br>' +
-            '<input type="button" value="close">' +
-            '<input type="submit">');
-        $("table").after().append(form);
+        $(".new_task_form").show();
     });
+
+     $(".close").click(function () {
+        $(".new_task_form").hide();
+     });
+
 });
 
 
