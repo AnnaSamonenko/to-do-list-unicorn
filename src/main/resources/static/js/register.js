@@ -1,8 +1,5 @@
 $(document).ready(function () {
     $("input.register").click(function () {
-        var loginValue = $("input.login").val();
-        var emailValue = $("input.email").val();
-        var passwordValue = $("input.password").val();
         $.ajax({
         type : "POST",
         contentType: "application/json; charset=utf-8",
@@ -17,9 +14,7 @@ $(document).ready(function () {
         alert(response);
          },
         error : function(e) {
-        var data =
         alert("ERROR: ", e);
-        alert($("input.login").val() + " " + $("input.email").val() + " "+ $("input.password").val());
         }
         });
     });
