@@ -14,6 +14,9 @@ public class UserRestController {
     @Autowired
     private UserService userService;
 
+//    @Autowired
+//    private RoleDAO roleDAO;
+
     @GetMapping(path = "/all")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
@@ -26,6 +29,7 @@ public class UserRestController {
 
     @PostMapping("/add")
     public void create(@RequestBody User user) {
+        user.setRole("user");
         userService.create(user);
     }
 }

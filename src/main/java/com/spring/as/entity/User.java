@@ -27,7 +27,7 @@ public class User implements UserDetails {
     @Getter
     @Setter
     @Column(name = "username", unique = true)
-    private String login;
+    private String username;
 
     @Getter
     @Setter
@@ -39,9 +39,12 @@ public class User implements UserDetails {
     @Column(name = "password")
     private String password;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    @Getter
+    @Setter
+    private String role;
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+//    private Set<Role> roles;
 
     @Getter
     @Setter
