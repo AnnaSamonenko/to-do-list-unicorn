@@ -29,12 +29,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/tasks")
-                .failureUrl("/login.html?error=true")
+                .failureUrl("/login?error=true")
                 .permitAll()
                 .and()
                 .logout()
                 .permitAll();
     }
+
 
     @Bean
     @Override
