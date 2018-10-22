@@ -3,6 +3,7 @@ package com.spring.as.controller.rest;
 import com.spring.as.entity.User;
 import com.spring.as.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +26,9 @@ public class UserRestController {
     }
 
     @PostMapping("/add")
-    public void create(@RequestBody User user) {
+    @ResponseStatus(value = HttpStatus.OK)
+    public String create(@RequestBody User user) {
         userService.create(user);
+        return "redirect:/tasks";
     }
 }

@@ -24,6 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/images/**").permitAll()
                 .antMatchers("/js/**").permitAll()
                 .antMatchers("/registration").permitAll()
+                .antMatchers("/rest/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -34,8 +35,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .permitAll();
+
+        http.csrf().disable();
     }
-    
+
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
