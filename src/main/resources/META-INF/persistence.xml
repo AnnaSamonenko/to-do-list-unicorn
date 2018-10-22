@@ -2,9 +2,9 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
     <persistence-unit name="config-unit">
-        <class>com.spring.as.entity.TaskDTO</class>
-        <class>com.spring.as.entity.ProjectDTO</class>
-        <class>com.spring.as.entity.UserDTO</class>
+        <class>com.spring.as.entity.Task</class>
+        <class>com.spring.as.entity.Project</class>
+        <class>com.spring.as.entity.User</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

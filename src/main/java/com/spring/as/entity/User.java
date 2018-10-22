@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "user")
-public class UserDTO {
+public class User {
 
     @Getter
     @Setter
@@ -38,5 +38,5 @@ public class UserDTO {
     @Getter
     @Setter
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<ProjectDTO> projects = new ArrayList<>();
+    private List<Project> projects = new ArrayList<>();
 }

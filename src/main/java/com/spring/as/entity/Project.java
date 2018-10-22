@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "project")
-public class ProjectDTO {
+public class Project {
 
     @Getter
     @Setter
@@ -27,11 +27,11 @@ public class ProjectDTO {
     @Getter
     @Setter
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "project")
-    private List<TaskDTO> tasks;
+    private List<Task> tasks;
 
     @Getter
     @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private UserDTO user;
+    private User user;
 }

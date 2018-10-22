@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "task")
-public class TaskDTO {
+public class Task {
 
     @Getter
     @Setter
@@ -38,12 +38,12 @@ public class TaskDTO {
     @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id", nullable = false)
-    private ProjectDTO project;
+    private Project project;
 
-    public TaskDTO() {
+    public Task() {
     }
 
-    public TaskDTO(String title, String description) {
+    public Task(String title, String description) {
         this.title = title;
         this.description = description;
     }

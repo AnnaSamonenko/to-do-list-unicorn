@@ -1,6 +1,6 @@
 package com.spring.as.controller.rest;
 
-import com.spring.as.entity.TaskDTO;
+import com.spring.as.entity.Task;
 import com.spring.as.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,18 +16,18 @@ public class TaskRestController {
     TaskService taskService;
 
     @GetMapping("/all")
-    List<TaskDTO> getAll() {
+    List<Task> getAll() {
         return taskService.getAllTasks();
     }
 
     @PostMapping("/add")
-    void create(@RequestBody TaskDTO taskDTO) {
+    void create(@RequestBody Task taskDTO) {
         taskDTO.setDate(LocalDate.now());
         taskService.createTask(taskDTO);
     }
 
     @GetMapping("/{id}")
-    TaskDTO get(@PathVariable("id") long id) {
+    Task get(@PathVariable("id") long id) {
         return taskService.getTask(id);
     }
 
