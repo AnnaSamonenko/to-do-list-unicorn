@@ -43,9 +43,6 @@ public class User implements UserDetails {
     @Setter
     @Column(name = "role")
     private String role;
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-//    private Set<Role> roles;
 
     @Getter
     @Setter
