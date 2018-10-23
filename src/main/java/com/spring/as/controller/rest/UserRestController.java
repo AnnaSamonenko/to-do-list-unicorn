@@ -33,6 +33,6 @@ public class UserRestController {
         userService.create(user);
         Authentication auth = new UsernamePasswordAuthenticationToken(user, user.getPassword(), user.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(auth);
-        return "redirect:/tasks";
+        return "redirect:/index";
     }
 }
