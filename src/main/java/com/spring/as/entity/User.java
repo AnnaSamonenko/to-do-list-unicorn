@@ -22,8 +22,8 @@ public class User {
 
     @Getter
     @Setter
-    @Column(name = "login")
-    private String login;
+    @Column(name = "username")
+    private String username;
 
     @Getter
     @Setter

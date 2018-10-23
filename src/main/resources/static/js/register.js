@@ -5,7 +5,7 @@ $(document).ready(function () {
         contentType: "application/json; charset=utf-8",
         url :"http://localhost:8080/rest/user/add",
         data: JSON.stringify({
-            login: $("#name").val(),
+            username: $("#name").val(),
             email: $("#email").val(),
             password: $("#pass").val()
         }),
