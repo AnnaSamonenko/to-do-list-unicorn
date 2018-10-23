@@ -54,4 +54,11 @@ public class UserDAOImpl implements GenericDAO<User> {
         em.getTransaction().commit();
         em.close();
     }
+
+    public User getByUsername(String username) {
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery("FROM User u WHERE u.username = :username");
+        query.setParameter("username", username);
+        return (User) query.getResultList().get(0);
+    }
 }
