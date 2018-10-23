@@ -19,9 +19,18 @@ $(document).ready(function () {
         $(".new_task_form").show();
     });
 
-     $(".close").click(function () {
+     $(".close_task_form").click(function () {
         $(".new_task_form").hide();
      });
+
+     //
+      $("button.add_project").click(function () {
+        $(".new_project_form").show();
+      });
+
+      $(".close_project_form").click(function () {
+        $(".new_project_form").hide();
+      });
 
 });
 
