@@ -10,12 +10,12 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Component
-public class ProjectDAOImpl implements GenericDAO<Project> {
+public class ProjectDAOImpl implements GenericDAO<Project, Long> {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("config-unit");
 
     @Override
-    public Project read(long id) {
+    public Project read(Long id) {
         EntityManager em = emf.createEntityManager();
         return em.find(Project.class, id);
     }

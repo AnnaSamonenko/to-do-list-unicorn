@@ -22,9 +22,9 @@ public class UserRestController {
         return userService.getAllUsers();
     }
 
-    @GetMapping(path = "/{id}")
-    public User getUser(@PathVariable("id") int id) {
-        return userService.getUser(id);
+    @GetMapping(path = "/{username}")
+    public User getUser(@PathVariable("username") String username) {
+        return userService.getUser(username);
     }
 
     @PostMapping("/add")

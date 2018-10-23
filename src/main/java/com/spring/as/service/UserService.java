@@ -30,8 +30,8 @@ public class UserService implements UserDetailsService {
         return userDAO.getAll();
     }
 
-    public User getUser(long id) {
-        return userDAO.read(id);
+    public User getUser(String username) {
+        return userDAO.read(username);
     }
 
     public void create(User user) {
@@ -45,7 +45,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return userDAO.getByUsername(s);
+        return userDAO.read(s);
     }
 
     public User getAuthorizedUser() {

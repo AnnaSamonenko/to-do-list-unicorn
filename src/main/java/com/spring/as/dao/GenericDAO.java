@@ -2,9 +2,9 @@ package com.spring.as.dao;
 
 import java.util.List;
 
-public interface GenericDAO<T> {
+public interface GenericDAO<T, U> {
 
-    T read(long id);
+    T read(U id);
 
     void delete(long id);
 

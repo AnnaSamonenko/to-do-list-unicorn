@@ -1,6 +1,5 @@
 package com.spring.as.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,16 +16,10 @@ import java.util.List;
 @Table(name = "user")
 public class User implements UserDetails {
 
-    @Getter
-    @Setter
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
-    @Column(name = "user_id")
-    private long id;
-
     @Getter
     @Setter
+    @NotNull
     @Column(name = "username", unique = true)
     private String username;
 

@@ -10,15 +10,9 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Component
-public class UserDAOImpl implements GenericDAO<User> {
+public class UserDAOImpl implements GenericDAO<User, String> {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("config-unit");
-
-    @Override
-    public User read(long id) {
-        EntityManager em = emf.createEntityManager();
-        return em.find(User.class, id);
-    }
 
     @Override
     public void delete(long id) {
@@ -55,7 +49,7 @@ public class UserDAOImpl implements GenericDAO<User> {
         em.close();
     }
 
-    public User getByUsername(String username) {
+    public User read(String username) {
         EntityManager em = emf.createEntityManager();
         Query query = em.createQuery("FROM User u WHERE u.username = :username");
         query.setParameter("username", username);

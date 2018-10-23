@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class TaskDAOImpl implements GenericDAO<Task> {
+public class TaskDAOImpl implements GenericDAO<Task, Long> {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("config-unit");
 
     @Override
-    public Task read(long id) {
+    public Task read(Long id) {
         EntityManager em = emf.createEntityManager();
         return em.find(Task.class, id);
     }
