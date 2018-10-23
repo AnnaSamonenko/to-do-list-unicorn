@@ -3,6 +3,9 @@ package com.spring.as.controller.rest;
 import com.spring.as.entity.User;
 import com.spring.as.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,8 +31,11 @@ public class UserRestController {
     }
 
     @PostMapping("/add")
-    public void create(@RequestBody User user) {
+    public String register(@RequestBody User user) {
         user.setRole("user");
         userService.create(user);
+        Authentication auth = new UsernamePasswordAuthenticationToken(user, user.getPassword(), user.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(auth);
+        return "redirect:/tasks";
     }
 }

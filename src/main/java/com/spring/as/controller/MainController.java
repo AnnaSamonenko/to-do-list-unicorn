@@ -15,4 +15,9 @@ public class MainController {
     String register() {
         return "registration";
     }
+
+    @GetMapping("/login")
+    String login() {
+        return "login";
+    }
 }

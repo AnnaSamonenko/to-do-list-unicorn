@@ -3,6 +3,7 @@ package com.spring.as.entity;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
@@ -10,7 +11,6 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -41,6 +41,7 @@ public class User implements UserDetails {
 
     @Getter
     @Setter
+    @Column(name = "role")
     private String role;
 //    @ManyToMany(cascade = CascadeType.ALL)
 //    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -53,12 +54,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
-    public String getUsername() {
-        return null;
+        return AuthorityUtils.createAuthorityList(role);
     }
 
     @Override
