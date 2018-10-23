@@ -1,8 +1,8 @@
 # Simple project for studying Spring Boot:
-1. Add styles to tasks.html.
+1. Migrate to Angular(Front-end part).
 2. Add verification for login and registration pages.
-3. Replace persistence.xml with spring config.
-4. Add logout
+3. Replace persistence.xml with java config.
+4. Repalce Entity Manager with Spring Data.
 
 # EER diagram:
 ![hibernate](https://user-images.githubusercontent.com/17299069/47139391-671a4d00-d2c4-11e8-89fc-4f0a184b0c65.png)
