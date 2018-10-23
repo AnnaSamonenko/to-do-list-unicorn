@@ -5,9 +5,8 @@ import com.spring.as.entity.User;
 import com.spring.as.service.ProjectService;
 import com.spring.as.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,15 +25,18 @@ public class ProjectRestController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public void createProject(@RequestBody Project project) {
-        Authentication currentUser = SecurityContextHolder.getContext().getAuthentication();
-        String username = currentUser.getName();
-        User user = (User) userService.loadUserByUsername(username);
+        User user = userService.getAuthorizedUser();
         project.setUser(user);
         projectService.createProject(project);
         List<Project> projects = user.getProjects();
         projects.add(project);
         user.setProjects(projects);
         userService.update(user);
+    }
+
+    @GetMapping("/all")
+    public List<Project> getProjectsOfUser() {
+        return userService.getAuthorizedUser().getProjects();
     }
 
 }

@@ -3,6 +3,8 @@ package com.spring.as.service;
 import com.spring.as.dao.UserDAOImpl;
 import com.spring.as.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -41,10 +43,15 @@ public class UserService implements UserDetailsService {
         userDAO.update(user);
     }
 
-
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         return userDAO.getByUsername(s);
+    }
+
+    public User getAuthorizedUser() {
+        Authentication currentUser = SecurityContextHolder.getContext().getAuthentication();
+        String username = currentUser.getName();
+        return (User) loadUserByUsername(username);
     }
 
 }

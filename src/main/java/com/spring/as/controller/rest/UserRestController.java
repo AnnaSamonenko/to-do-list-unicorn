@@ -35,4 +35,5 @@ public class UserRestController {
         SecurityContextHolder.getContext().setAuthentication(auth);
         return "redirect:/index";
     }
+
 }
