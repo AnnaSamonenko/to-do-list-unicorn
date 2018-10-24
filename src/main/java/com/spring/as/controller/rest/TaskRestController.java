@@ -1,7 +1,11 @@
 package com.spring.as.controller.rest;
 
+import com.spring.as.dto.TaskDTO;
 import com.spring.as.entity.Task;
+import com.spring.as.entity.User;
+import com.spring.as.service.ProjectService;
 import com.spring.as.service.TaskService;
+import com.spring.as.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +17,13 @@ import java.util.List;
 public class TaskRestController {
 
     @Autowired
-    TaskService taskService;
+    private TaskService taskService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private ProjectService projectService;
 
     @GetMapping("/all")
     List<Task> getAll() {
@@ -21,9 +31,15 @@ public class TaskRestController {
     }
 
     @PostMapping("/add")
-    void create(@RequestBody Task taskDTO) {
-        taskDTO.setDate(LocalDate.now());
-        taskService.createTask(taskDTO);
+    void create(@RequestBody TaskDTO taskDTO) {
+        Task task = new Task();
+        User user = userService.getAuthorizedUser();
+        task.setDate(LocalDate.now());
+        task.setDescription(taskDTO.getDescription());
+        task.setTitle(taskDTO.getTitle());
+
+        task.setProject(projectService.findProjectByProjectName(user, taskDTO.getProjectName()));
+        taskService.createTask(task);
     }
 
     @GetMapping("/{id}")
