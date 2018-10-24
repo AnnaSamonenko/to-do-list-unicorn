@@ -59,7 +59,7 @@ public class PersistenceConfig {
     Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "update");
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLInnoDBDialect");
+        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
         return properties;
     }
 }
