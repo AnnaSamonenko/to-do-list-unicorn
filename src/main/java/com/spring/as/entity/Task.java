@@ -1,7 +1,5 @@
 package com.spring.as.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +9,6 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "task")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Task {
 
     @Getter
@@ -39,8 +36,10 @@ public class Task {
 
     @Getter
     @Setter
-    @JsonManagedReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id", nullable = false)
     private Project project;
+
+    public Task() {
+    }
 }
