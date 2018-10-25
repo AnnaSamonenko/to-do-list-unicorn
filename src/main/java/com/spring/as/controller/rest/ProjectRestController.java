@@ -19,8 +19,7 @@ public class ProjectRestController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    @ResponseBody()
+    @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json")
     public void createProject(@RequestBody Project project) {
         User user = userService.getAuthorizedUser();
         project.setUser(user);

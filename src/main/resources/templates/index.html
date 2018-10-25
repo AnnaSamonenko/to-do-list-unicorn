@@ -10,31 +10,50 @@
 </head>
 <body>
 <div class="container">
-    <table class="task_table">
-        <tr>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand nav-link" href="#">To do list</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/logout" class="nav-link">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <table class="table table-striped">
+        <tr class="thead-dark">
             <th>Title</th>
             <th>Description</th>
             <th>Date</th>
         </tr>
     </table>
-    <button type="button" class="add_task">Add task</button>
-    <button type="button" class="add_project">Add project</button>
+    <button type="button" class="add_task btn btn-secondary">Add task</button>
+    <button type="button" class="add_project btn btn-secondary">Add project</button>
+
     <div class="new_task_form" style="display:none">
         <form>
-            Title: <input type="text" name="title" id="task_title"><br>
-            Description: <input type="text" name="description" id="task_description"><br>
-            Project: <input type="text" class="project_name" id="project_name">
-            <input type="button" value="close" class="close_task_form">
-            <input type="submit" value="submit" id="submit_task_form">
+            <div class="form-group">
+                Title: <input type="text" name="title" id="task_title"><br>
+            </div>
+            <div class="form-group">
+                Description: <input type="text" name="description" id="task_description"><br>
+            </div>
+            <div class="form-group">
+                Project: <input type="text" class="project_name" id="project_name">
+            </div>
+            <input type="button" value="close" class="close_task_form btn btn-secondary">
+            <input type="submit" value="submit" id="submit_task_form" class="btn btn-secondary">
         </form>
     </div>
 
     <div class="new_project_form" style="display:none">
         <form>
-            Project title: <input type="text" name="title" id="title"><br>
-
-            <input type="button" value="close" class="close_project_form">
-            <input type="submit" value="submit" id="submit_project_form">
+            <div class="form-group">
+                Project title: <input type="text" name="title" id="title"><br>
+            </div>
+            <input type="button" value="close" class="close_project_form btn btn-secondary">
+            <input type="submit" value="submit" id="submit_project_form" class="btn btn-secondary">
         </form>
     </div>
 </div>
