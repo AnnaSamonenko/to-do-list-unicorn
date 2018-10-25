@@ -30,7 +30,7 @@ public class ProjectDAOImpl implements GenericDAO<Project, Long> {
 
     @Transactional
     public List<Project> read(User user) {
-        Query query = em.createQuery(" FROM Project p WHERE p.username = :username");
+        Query query = em.createQuery("FROM Project p WHERE p.user.username = :username ");
         query.setParameter("username", user.getUsername());
         return query.getResultList();
     }
