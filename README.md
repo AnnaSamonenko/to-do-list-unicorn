@@ -17,3 +17,7 @@ Registration page:
 
 Login page:
 ![login](https://user-images.githubusercontent.com/17299069/47163211-335c1900-d2fe-11e8-90d1-505a2d60c7c8.PNG)
+
+Main page:
+
+![index](https://user-images.githubusercontent.com/17299069/47510005-e89f4b80-d87f-11e8-9326-59f6769b59e2.PNG)
