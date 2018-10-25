@@ -1,5 +1,7 @@
 package com.spring.as.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,6 +16,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "user")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User implements UserDetails {
 
     @Id
@@ -40,6 +43,7 @@ public class User implements UserDetails {
 
     @Getter
     @Setter
+    @JsonBackReference
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Project> projects = new ArrayList<>();
 
