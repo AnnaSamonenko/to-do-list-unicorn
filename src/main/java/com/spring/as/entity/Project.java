@@ -1,5 +1,6 @@
 package com.spring.as.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,6 +32,7 @@ public class Project {
 
     @Getter
     @Setter
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "username", nullable = false)
     private User user;

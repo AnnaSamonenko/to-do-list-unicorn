@@ -11,7 +11,7 @@ $(document).ready(function () {
             task_data += '<td>' + value.date + '</td>';
             task_data += '</tr>';
         });
-        $('.task_table').append(task_data);
+        $('.table').append(task_data);
     });
 
     // add data to db
