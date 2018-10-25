@@ -7,6 +7,7 @@
 3. Close rest api(How?).
 4. Add opportunity reset password.
 5. Add opportunity to login with gmail(facebook account).
+6. Deploy on heroku.
 
 # EER diagram:
 ![hibernate](https://user-images.githubusercontent.com/17299069/47139391-671a4d00-d2c4-11e8-89fc-4f0a184b0c65.png)
