@@ -42,7 +42,7 @@ public class PersistenceConfig {
         Properties properties = new Properties();
         properties.setProperty("spring.jpa.show-sql", "false");
         properties.setProperty("spring.jpa.generate-ddl", "true");
-        properties.setProperty("spring.jpa.hibernate.ddl-auto", "update");
+        properties.setProperty("spring.jpa.hibernate.ddl-auto", "create");
         return properties;
     }
 }
