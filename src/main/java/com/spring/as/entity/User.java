@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "user", schema = "dei4m2s11duck4")
+@Table(name = "users", schema = "dei4m2s11duck4")
 public class User implements UserDetails {
 
     @Id
@@ -40,7 +40,7 @@ public class User implements UserDetails {
 
     @Getter
     @Setter
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "users")
     private List<Project> projects = new ArrayList<>();
 
     @Override
