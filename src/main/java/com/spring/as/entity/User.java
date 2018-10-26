@@ -40,7 +40,7 @@ public class User implements UserDetails {
 
     @Getter
     @Setter
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "users")
     private List<Project> projects = new ArrayList<>();
 
     @Override
