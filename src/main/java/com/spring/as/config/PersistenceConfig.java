@@ -33,7 +33,7 @@ public class PersistenceConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:postgresql://ec2-54-75-251-84.eu-west-1.compute.amazonaws.com:5432/d3rko5fne6tdgp?createDatabaseIfNotExist=true");
+        dataSource.setUrl("jdbc:postgresql://ec2-54-75-251-84.eu-west-1.compute.amazonaws.com:5432/d3rko5fne6tdgp?user=yvgomivwtreysy&password=949467df493118706ad2c98cceb90a7592fd7aee355c7cd28dce18d87bbb8757&sslmode=require");
         dataSource.setUsername("yvgomivwtreysy");
         dataSource.setPassword("949467df493118706ad2c98cceb90a7592fd7aee355c7cd28dce18d87bbb8757");
         return dataSource;
