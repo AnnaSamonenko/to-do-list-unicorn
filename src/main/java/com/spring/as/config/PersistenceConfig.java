@@ -43,7 +43,7 @@ public class PersistenceConfig {
         properties.setProperty("spring.jpa.show-sql", "false");
         properties.setProperty("spring.jpa.generate-ddl", "true");
         properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL94Dialect");
+//        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL94Dialect");
         properties.setProperty("hibernate.temp.use_jdbc_metadata_defaults", "false");
         return properties;
     }
