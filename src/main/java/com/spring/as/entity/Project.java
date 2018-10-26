@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name = "project", schema = "dei4m2s11duck4")
+@Table(name = "project")
 public class Project {
 
     @Getter
