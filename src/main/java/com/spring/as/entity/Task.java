@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "task")
+@Table(name = "task", schema = "dei4m2s11duck4")
 public class Task {
 
     @Getter
