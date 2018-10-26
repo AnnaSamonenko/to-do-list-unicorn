@@ -32,7 +32,7 @@ public class PersistenceConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:postgresql://ec2-54-247-86-89.eu-west-1.compute.amazonaws.com:5432/dei4m2s11duck4?&sslmode=require");
+        dataSource.setUrl("jdbc:postgresql://ec2-54-247-86-89.eu-west-1.compute.amazonaws.com:5432/dei4m2s11duck4?createDatabaseIfNotExist=true&sslmode=require");
         dataSource.setUsername("iknhcpfbrgdibo");
         dataSource.setPassword("a7be0c16f9756fd0a50d2b8c4c10a75b3a17c8ab740f387e50a5b617df6c6db2");
         return dataSource;
