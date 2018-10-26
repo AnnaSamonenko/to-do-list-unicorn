@@ -39,7 +39,7 @@ public class RegistrationValidation implements Validator {
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "email.not_empty");
         // TODO: fix this
-        if (userDAO.read(user.getUsername()) != null)
+        if (userDAO.isEmailPresent(user.getUsername()))
             errors.rejectValue("email", "email.isPresent");
         if (!emailValidator.isValid(user.getEmail()))
             errors.rejectValue("email", "email.incorrect_value");
