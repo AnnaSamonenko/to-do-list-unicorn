@@ -22,10 +22,6 @@ public class UserService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public void register(User user) {
-        userDAO.create(user);
-    }
-
     public List<User> getAllUsers() {
         return userDAO.getAll();
     }
@@ -35,6 +31,7 @@ public class UserService implements UserDetailsService {
     }
 
     public void create(User user) {
+        user.setRole("user");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDAO.create(user);
     }

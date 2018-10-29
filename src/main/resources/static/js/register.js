@@ -11,10 +11,11 @@ $(document).ready(function () {
         }),
         timeout : 100000,
         success : function(response) {
-            location.href = "http://localhost:8080/index"
+            //document.location.href = "http://localhost:8080/index";
+            alert("something");
         },
         error : function(e) {
-            location.href = "http://localhost:8080/registration"
+            document.location.href = "http://localhost:8080/registration"
         }
         });
     });

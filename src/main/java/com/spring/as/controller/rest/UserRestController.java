@@ -3,7 +3,7 @@ package com.spring.as.controller.rest;
 import com.spring.as.entity.User;
 import com.spring.as.service.UserService;
 import com.spring.as.validation.ErrorDetails;
-import com.spring.as.validation.RegistrationValidation;
+import com.spring.as.validation.RegistrationFormValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +23,7 @@ public class UserRestController {
     private UserService userService;
 
     @Autowired
-    private RegistrationValidation registrationValidation;
+    private RegistrationFormValidation registrationFormValidation;
 
     @GetMapping(path = "/all")
     public List<User> getAllUsers() {
@@ -37,20 +36,17 @@ public class UserRestController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> register(@RequestBody User user, BindingResult bindingResult) {
-        registrationValidation.validate(user, bindingResult);
+    public ResponseEntity register(@RequestBody User user, BindingResult bindingResult) {
+        registrationFormValidation.validate(user, bindingResult);
 
-        if (bindingResult.hasErrors()) {
-            ErrorDetails errorDetails = new ErrorDetails(HttpStatus.BAD_REQUEST.toString(), bindingResult);
-            return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
-            //ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseBody.toString());
-        }
+        if (bindingResult.hasErrors())
+            return new ResponseEntity<>(new ErrorDetails(HttpStatus.BAD_REQUEST.toString(), bindingResult),
+                    HttpStatus.BAD_REQUEST);
 
-        user.setRole("user");
         userService.create(user);
         Authentication auth = new UsernamePasswordAuthenticationToken(user, user.getPassword(), user.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(auth);
-        return ResponseEntity.ok(user);
+        return new ResponseEntity(user, HttpStatus.CREATED);
     }
 
 }

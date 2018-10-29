@@ -14,7 +14,7 @@ import org.apache.commons.validator.routines.EmailValidator;
 
 @Component
 @PropertySource("classpath:validation.properties")
-public class RegistrationValidation implements Validator {
+public class RegistrationFormValidation implements Validator {
 
     private EmailValidator emailValidator = EmailValidator.getInstance();
 
@@ -44,7 +44,7 @@ public class RegistrationValidation implements Validator {
             errors.rejectValue("password", env.getProperty("password.invalid_range"));
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", env.getProperty("email.not_empty"));
-        // TODO: fix this
+       
         if (userDAO.isEmailPresent(user.getUsername()))
             errors.rejectValue("email", env.getProperty("email.isPresent"));
         if (!emailValidator.isValid(user.getEmail()))
