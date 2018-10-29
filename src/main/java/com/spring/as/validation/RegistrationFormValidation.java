@@ -44,7 +44,6 @@ public class RegistrationFormValidation implements Validator {
             errors.rejectValue("password", env.getProperty("password.invalid_range"));
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", env.getProperty("email.not_empty"));
-       
         if (userDAO.isEmailPresent(user.getUsername()))
             errors.rejectValue("email", env.getProperty("email.isPresent"));
         if (!emailValidator.isValid(user.getEmail()))

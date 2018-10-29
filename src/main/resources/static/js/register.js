@@ -11,8 +11,7 @@ $(document).ready(function () {
         }),
         timeout : 100000,
         success : function(response) {
-            //document.location.href = "http://localhost:8080/index";
-            alert("something");
+            document.location.href = "http://localhost:8080/index";
         },
         error : function(e) {
             document.location.href = "http://localhost:8080/registration"

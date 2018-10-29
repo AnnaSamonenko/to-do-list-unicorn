@@ -1,8 +1,7 @@
 package com.spring.as.validation;
 
-import com.spring.as.dao.ProjectDAOImpl;
-import com.spring.as.dao.UserDAOImpl;
 import com.spring.as.entity.Project;
+import com.spring.as.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
@@ -17,10 +16,7 @@ public class AddProjectValidationForm implements Validator {
     private Environment env;
 
     @Autowired
-    private UserDAOImpl userDAO;
-
-    @Autowired
-    private ProjectDAOImpl project;
+    private UserService userService;
 
     @Override
     public boolean supports(Class<?> aClass) {
@@ -30,11 +26,8 @@ public class AddProjectValidationForm implements Validator {
     @Override
     public void validate(Object o, Errors errors) {
         Project project = (Project) o;
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "projectName", env.getProperty("project.not_empty"));
-
-
-
-
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", env.getProperty("project.not_empty"));
+        if (userService.getAuthorizedUser().getProjects().contains(project))
+            errors.rejectValue("name", env.getProperty("project.isPresent"));
     }
 }
