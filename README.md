@@ -1,12 +1,7 @@
 # Simple project for studying Spring Boot:
 1. Migrate to Angular(Front-end part).
-2. Add verification for login and registration pages:
-  - username already is present
-  - incorrect username
-  - incorrect password
-3. Close rest api(How?).
-4. Add opportunity reset password.
-5. Add opportunity to login with gmail(facebook account).
+2. Add opportunity reset password.
+3. Add opportunity to login with gmail(facebook account).
 
 # EER diagram:
 ![hibernate](https://user-images.githubusercontent.com/17299069/47139391-671a4d00-d2c4-11e8-89fc-4f0a184b0c65.png)
