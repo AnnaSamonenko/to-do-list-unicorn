@@ -18,9 +18,6 @@ import java.util.Properties;
 @PropertySource("classpath:database.properties")
 public class PersistenceConfig {
 
-    @Value("${spring.datasource.driver-class-name}")
-    private String dbClassName;
-
     @Value("${spring.datasource.username}")
     private String dbUsername;
 
@@ -47,7 +44,6 @@ public class PersistenceConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(dbClassName);
         dataSource.setUrl(dbUrl);
         dataSource.setUsername(dbUsername);
         dataSource.setPassword(dbPassword);
