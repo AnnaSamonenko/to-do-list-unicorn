@@ -1,15 +1,16 @@
 package com.spring.as.controller.rest;
 
-import com.spring.as.dto.TaskDTO;
+import com.spring.as.dto.AddTaskDTO;
 import com.spring.as.entity.Task;
-import com.spring.as.entity.User;
-import com.spring.as.service.ProjectService;
 import com.spring.as.service.TaskService;
-import com.spring.as.service.UserService;
+import com.spring.as.validation.AddTaskValidationForm;
+import com.spring.as.validation.ErrorDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -20,10 +21,7 @@ public class TaskRestController {
     private TaskService taskService;
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
-    private ProjectService projectService;
+    private AddTaskValidationForm addTaskValidationForm;
 
     @GetMapping("/all")
     List<Task> getAll() {
@@ -31,15 +29,14 @@ public class TaskRestController {
     }
 
     @PostMapping("/add")
-    void create(@RequestBody TaskDTO taskDTO) {
-        Task task = new Task();
-        User user = userService.getAuthorizedUser();
-        task.setDate(LocalDate.now());
-        task.setDescription(taskDTO.getDescription());
-        task.setTitle(taskDTO.getTitle());
+    ResponseEntity<?> create(@RequestBody AddTaskDTO taskDTO, BindingResult bindingResult) {
+        addTaskValidationForm.validate(taskDTO, bindingResult);
 
-        task.setProject(projectService.findProjectByProjectName(user, taskDTO.getProjectName()));
-        taskService.createTask(task);
+        if (bindingResult.hasErrors())
+            return new ResponseEntity<>(new ErrorDetails(HttpStatus.BAD_REQUEST.toString(), bindingResult),
+                    HttpStatus.BAD_REQUEST);
+
+        return new ResponseEntity(taskService.createTask(taskDTO), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")

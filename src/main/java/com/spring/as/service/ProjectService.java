@@ -14,8 +14,21 @@ public class ProjectService {
     @Autowired
     private ProjectDAOImpl projectDAO;
 
+    @Autowired
+    private UserService userService;
+
     public void createProject(Project project) {
+        User user = userService.getAuthorizedUser();
+        project.setUser(user);
         projectDAO.create(project);
+        List<Project> projects = user.getProjects();
+        projects.add(project);
+        user.setProjects(projects);
+        userService.update(user);
+    }
+
+    public List<Project> getProjects() {
+        return userService.getAuthorizedUser().getProjects();
     }
 
     public Project findProjectByProjectName(User user, String projectName) {

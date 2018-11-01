@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -38,6 +37,6 @@ public class TaskDAOImpl implements GenericDAO<Task, Long> {
 
     public List<Task> getAll() {
         Query query = em.createQuery("SELECT t FROM Task t");
-        return (ArrayList<Task>) query.getResultList();
+        return query.getResultList();
     }
 }

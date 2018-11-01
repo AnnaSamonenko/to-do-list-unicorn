@@ -40,8 +40,12 @@ public class UserDAOImpl implements GenericDAO<User, String> {
 
     @Override
     public User read(String username) {
-        Query query = em.createQuery("FROM User u WHERE u.username = :username");
-        query.setParameter("username", username);
-        return (User) query.getResultList().get(0);
+        return em.find(User.class, username);
+    }
+
+    public boolean isEmailPresent(String email) {
+        Query query = em.createQuery("SELECT u FROM User u WHERE email = :email");
+        List<User> users = query.setParameter("email", email).getResultList();
+        return !users.isEmpty();
     }
 }

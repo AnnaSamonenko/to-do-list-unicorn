@@ -1,7 +1,9 @@
 package com.spring.as.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -13,7 +15,20 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
+@PropertySource("classpath:database.properties")
 public class PersistenceConfig {
+
+    @Value("${spring.datasource.driver-class-name}")
+    private String dbClassName;
+
+    @Value("${spring.datasource.username}")
+    private String dbUsername;
+
+    @Value("${spring.datasource.password}")
+    private String dbPassword;
+
+    @Value("${spring.datasource.url}")
+    private String dbUrl;
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -32,9 +47,10 @@ public class PersistenceConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:postgresql://ec2-54-247-86-89.eu-west-1.compute.amazonaws.com:5432/dei4m2s11duck4?createDatabaseIfNotExist=true&sslmode=require");
-        dataSource.setUsername("iknhcpfbrgdibo");
-        dataSource.setPassword("a7be0c16f9756fd0a50d2b8c4c10a75b3a17c8ab740f387e50a5b617df6c6db2");
+        dataSource.setDriverClassName(dbClassName);
+        dataSource.setUrl(dbUrl);
+        dataSource.setUsername(dbUsername);
+        dataSource.setPassword(dbPassword);
         return dataSource;
     }
 

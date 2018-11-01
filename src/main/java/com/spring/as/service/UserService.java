@@ -22,10 +22,6 @@ public class UserService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public void register(User user) {
-        userDAO.create(user);
-    }
-
     public List<User> getAllUsers() {
         return userDAO.getAll();
     }
@@ -35,6 +31,7 @@ public class UserService implements UserDetailsService {
     }
 
     public void create(User user) {
+        user.setRole("user");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDAO.create(user);
     }
@@ -45,6 +42,9 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        User user = userDAO.read(s);
+        if (user == null)
+            throw new UsernameNotFoundException("No user found with username " + s);
         return userDAO.read(s);
     }
 
