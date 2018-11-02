@@ -39,14 +39,6 @@ public class Project {
     private User user;
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Project)) return false;
-        Project project = (Project) o;
-        return Objects.equals(getName(), project.getName());
-    }
-
-    @Override
     public int hashCode() {
         return Objects.hash(getName());
     }
