@@ -37,8 +37,8 @@ public class UserRestController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity register(@RequestBody @Valid User user, BindingResult bindingResult) {
-        //registrationFormValidation.validate(user, bindingResult);
+    public ResponseEntity register(@RequestBody User user, BindingResult bindingResult) {
+        registrationFormValidation.validate(user, bindingResult);
 
         if (bindingResult.hasErrors())
             return new ResponseEntity<>(new ErrorDetails(HttpStatus.BAD_REQUEST.toString(), bindingResult),

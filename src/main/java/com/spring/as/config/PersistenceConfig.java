@@ -3,9 +3,8 @@ package com.spring.as.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -15,7 +14,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@PropertySource("classpath:database-pg.properties")
+//@PropertySource("classpath:database-pg-heroku.properties")
 public class PersistenceConfig {
 
     @Value("${spring.datasource.username}")
@@ -27,16 +26,33 @@ public class PersistenceConfig {
     @Value("${spring.datasource.url}")
     private String dbUrl;
 
+    @Value("${hibernate.dialect}")
+    private String jpaHibernateDialect;
+
+
+    @Profile({"test", "prod"})
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+    public LocalContainerEntityManagerFactoryBean prodEntityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
         em.setPackagesToScan(new String[]{"com.spring.as.entity"});
 
-        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        em.setJpaVendorAdapter(vendorAdapter);
-        em.setJpaProperties(additionalProperties());
+        em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+        em.setJpaProperties(prodAdditionalProperties());
+        return em;
+    }
+
+    @Profile("dev")
+    @Bean
+    public LocalContainerEntityManagerFactoryBean devEntityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean em
+                = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(dataSource());
+        em.setPackagesToScan(new String[]{"com.spring.as.entity"});
+
+        em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+        em.setJpaProperties(devAdditionalProperties());
 
         return em;
     }
@@ -50,13 +66,22 @@ public class PersistenceConfig {
         return dataSource;
     }
 
-    Properties additionalProperties() {
+
+    Properties prodAdditionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("spring.jpa.show-sql", "false");
         properties.setProperty("spring.jpa.generate-ddl", "true");
         properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL95Dialect");
+        properties.setProperty("hibernate.dialect", jpaHibernateDialect);
         properties.setProperty("hibernate.temp.use_jdbc_metadata_defaults", "false");
         return properties;
     }
+
+    Properties devAdditionalProperties() {
+        Properties properties = new Properties();
+        properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+        properties.setProperty("hibernate.dialect", jpaHibernateDialect);
+        return properties;
+    }
+
 }
