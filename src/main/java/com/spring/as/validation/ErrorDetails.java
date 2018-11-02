@@ -18,7 +18,7 @@ public class ErrorDetails {
         this.status = status;
         List<FieldError> fieldErrors = bindingResult.getFieldErrors();
         for (FieldError fe : fieldErrors)
-            messages.add(fe.getCode());
+            messages.add(fe.getDefaultMessage());
     }
 
 }

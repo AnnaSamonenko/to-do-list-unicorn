@@ -2,6 +2,7 @@ package com.spring.as.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,14 +18,15 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
+@PropertySource("classpath:config.properties")
 public class User implements UserDetails {
 
     @Id
     @Getter
     @Setter
     @NotNull
-    @Size(min = 4, max = 15)
-    @NotBlank
+    @Size(min = 4, max = 15, message = "${username.invalid_range}")
+    @NotBlank(message = "${username.not_empty}")
     @Column(name = "username", unique = true)
     private String username;
 

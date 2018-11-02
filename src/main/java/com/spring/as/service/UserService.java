@@ -40,6 +40,10 @@ public class UserService implements UserDetailsService {
         userDAO.update(user);
     }
 
+    public boolean existsByEmail(String email) {
+        return userDAO.isEmailPresent(email);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userDAO.read(s);

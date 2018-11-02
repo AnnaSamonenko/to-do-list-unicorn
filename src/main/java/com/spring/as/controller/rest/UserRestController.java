@@ -3,7 +3,6 @@ package com.spring.as.controller.rest;
 import com.spring.as.entity.User;
 import com.spring.as.service.UserService;
 import com.spring.as.validation.ErrorDetails;
-import com.spring.as.validation.RegistrationFormValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +22,6 @@ public class UserRestController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private RegistrationFormValidation registrationFormValidation;
-
     @GetMapping(path = "/all")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
@@ -37,8 +33,7 @@ public class UserRestController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity register(@RequestBody User user, BindingResult bindingResult) {
-        registrationFormValidation.validate(user, bindingResult);
+    public ResponseEntity register(@RequestBody @Valid User user, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors())
             return new ResponseEntity<>(new ErrorDetails(HttpStatus.BAD_REQUEST.toString(), bindingResult),
