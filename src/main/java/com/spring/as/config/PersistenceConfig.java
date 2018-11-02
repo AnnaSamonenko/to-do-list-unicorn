@@ -29,7 +29,6 @@ public class PersistenceConfig {
     @Value("${hibernate.dialect}")
     private String jpaHibernateDialect;
 
-
     @Profile({"test", "prod"})
     @Bean
     public LocalContainerEntityManagerFactoryBean prodEntityManagerFactory() {
@@ -65,7 +64,6 @@ public class PersistenceConfig {
         dataSource.setPassword(dbPassword);
         return dataSource;
     }
-
 
     Properties prodAdditionalProperties() {
         Properties properties = new Properties();
