@@ -6,7 +6,7 @@ public interface GenericDAO<T, U> {
 
     T read(U id);
 
-    void delete(long id);
+    void delete(U id);
 
     List<T> getAll();
 

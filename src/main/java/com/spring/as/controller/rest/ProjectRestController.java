@@ -23,7 +23,7 @@ public class ProjectRestController {
     private AddProjectValidationForm addProjectValidationForm;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json")
-    public ResponseEntity<?> create(@RequestBody Project project, BindingResult bindingResult) {
+    public ResponseEntity create(@RequestBody Project project, BindingResult bindingResult) {
         addProjectValidationForm.validate(project, bindingResult);
 
         if (bindingResult.hasErrors())

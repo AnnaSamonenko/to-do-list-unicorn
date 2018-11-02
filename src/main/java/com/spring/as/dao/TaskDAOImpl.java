@@ -20,17 +20,17 @@ public class TaskDAOImpl implements GenericDAO<Task, Long> {
     }
 
     @Override
-    public void update(Task taskDTO) {
-        em.merge(taskDTO);
+    public void update(Task task) {
+        em.merge(task);
     }
 
     @Override
-    public void create(Task taskDTO) {
-        em.persist(taskDTO);
+    public void create(Task task) {
+        em.persist(task);
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(Long id) {
         Task task = em.find(Task.class, id);
         em.remove(task);
     }

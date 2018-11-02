@@ -29,7 +29,7 @@ public class TaskRestController {
     }
 
     @PostMapping("/add")
-    ResponseEntity<?> create(@RequestBody AddTaskDTO taskDTO, BindingResult bindingResult) {
+    ResponseEntity create(@RequestBody AddTaskDTO taskDTO, BindingResult bindingResult) {
         addTaskValidationForm.validate(taskDTO, bindingResult);
 
         if (bindingResult.hasErrors())

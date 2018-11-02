@@ -35,7 +35,7 @@ public class ProjectDAOImpl implements GenericDAO<Project, Long> {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(Long id) {
         Project project = em.find(Project.class, id);
         em.remove(project);
     }

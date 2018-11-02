@@ -15,7 +15,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@PropertySource("classpath:database.properties")
+@PropertySource("classpath:database-pg.properties")
 public class PersistenceConfig {
 
     @Value("${spring.datasource.username}")

@@ -17,7 +17,7 @@ public class UserDAOImpl implements GenericDAO<User, String> {
     private EntityManager em;
 
     @Override
-    public void delete(long id) {
+    public void delete(String id) {
         User user = em.find(User.class, id);
         em.remove(user);
     }
