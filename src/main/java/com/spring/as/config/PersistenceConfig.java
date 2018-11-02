@@ -14,7 +14,6 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-//@PropertySource("classpath:database-pg-heroku.properties")
 public class PersistenceConfig {
 
     @Value("${spring.datasource.username}")
