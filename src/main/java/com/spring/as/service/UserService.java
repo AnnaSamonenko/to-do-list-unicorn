@@ -31,6 +31,11 @@ public class UserService implements UserDetailsService {
     }
 
     public void create(User user) {
+        if (userDAO.isUsernamePresent(user.getUsername()))
+            throw new IllegalArgumentException("Username is already present");
+        if (userDAO.isEmailPresent(user.getEmail()))
+            throw new IllegalArgumentException("Email is already present");
+
         user.setRole("user");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDAO.create(user);

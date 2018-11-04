@@ -21,4 +21,9 @@ public class ErrorDetails {
             messages.add(fe.getDefaultMessage());
     }
 
+    public ErrorDetails(String status, String message) {
+        this.status = status;
+        messages.add(message);
+    }
+
 }

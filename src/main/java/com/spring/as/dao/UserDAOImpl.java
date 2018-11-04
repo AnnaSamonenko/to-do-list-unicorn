@@ -48,4 +48,8 @@ public class UserDAOImpl implements GenericDAO<User, String> {
         List<User> users = query.setParameter("email", email).getResultList();
         return !users.isEmpty();
     }
+
+    public boolean isUsernamePresent(String username) {
+        return read(username) != null;
+    }
 }
