@@ -2,8 +2,10 @@ package com.spring.as.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
 
 public class AddTaskDTO {
 
@@ -15,6 +17,11 @@ public class AddTaskDTO {
     @Getter
     @Setter
     private String description;
+
+    @Getter
+    @Setter
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    private LocalDate deadline;
 
     @Getter
     @Setter

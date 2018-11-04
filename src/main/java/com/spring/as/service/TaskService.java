@@ -28,6 +28,7 @@ public class TaskService {
             throw new IllegalArgumentException("Project with such name is not present");
         Task task = new Task();
         task.setDate(LocalDate.now());
+        task.setDeadline(taskDTO.getDeadline());
         task.setDescription(taskDTO.getDescription());
         task.setTitle(taskDTO.getTitle());
 

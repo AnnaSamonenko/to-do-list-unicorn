@@ -9,28 +9,28 @@ $(document).ready(function () {
             task_data += '<td>' + value.title + '</td>';
             task_data += '<td>' + value.description + '</td>';
             task_data += '<td>' + value.date + '</td>';
+            task_data += '<td>' + value.deadline + '</td>';
             task_data += '</tr>';
         });
         $('.table').append(task_data);
     });
 
-    // add data to db
     $("button.add_task").click(function () {
         $(".new_task_form").show();
     });
 
-     $(".close_task_form").click(function () {
+    $(".close_task_form").click(function () {
         $(".new_task_form").hide();
-     });
+    });
 
-     //
-      $("button.add_project").click(function () {
+    //
+    $("button.add_project").click(function () {
         $(".new_project_form").show();
-      });
+    });
 
-      $(".close_project_form").click(function () {
+    $(".close_project_form").click(function () {
         $(".new_project_form").hide();
-      });
+    });
 
 });
 
