@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -19,7 +20,7 @@ public class ProjectRestController {
     private ProjectService projectService;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json")
-    public ResponseEntity create(@RequestBody Project project, BindingResult bindingResult) {
+    public ResponseEntity create(@RequestBody @Valid Project project, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors())
             return new ResponseEntity<>(new ErrorDetails(HttpStatus.BAD_REQUEST.toString(), bindingResult),

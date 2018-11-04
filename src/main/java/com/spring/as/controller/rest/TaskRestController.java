@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,13 +26,12 @@ public class TaskRestController {
     }
 
     @PostMapping("/add")
-    ResponseEntity create(@RequestBody AddTaskDTO taskDTO, BindingResult bindingResult) {
+    ResponseEntity create(@RequestBody @Valid AddTaskDTO taskDTO, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors())
             return new ResponseEntity<>(new ErrorDetails(HttpStatus.BAD_REQUEST.toString(), bindingResult),
                     HttpStatus.BAD_REQUEST);
-
-        return new ResponseEntity(taskService.createTask(taskDTO), HttpStatus.CREATED);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")

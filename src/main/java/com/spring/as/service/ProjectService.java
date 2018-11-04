@@ -19,6 +19,10 @@ public class ProjectService {
 
     public void createProject(Project project) {
         User user = userService.getAuthorizedUser();
+
+        if (isProjectPresent(user, project.getName()))
+            throw new IllegalArgumentException("Project with such name is already present");
+        
         project.setUser(user);
         projectDAO.create(project);
         List<Project> projects = user.getProjects();
@@ -39,6 +43,16 @@ public class ProjectService {
             }
         }
         throw new IllegalArgumentException("You don't have such project");
+    }
+
+    public boolean isProjectPresent(User user, String projectName) {
+        List<Project> projects = projectDAO.read(user);
+        for (Project pr : projects) {
+            if (pr.getName().equals(projectName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

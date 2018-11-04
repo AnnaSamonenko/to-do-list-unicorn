@@ -42,7 +42,7 @@ public class UserRestController {
         userService.create(user);
         Authentication auth = new UsernamePasswordAuthenticationToken(user, user.getPassword(), user.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(auth);
-        return new ResponseEntity(user, HttpStatus.CREATED);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 
 }
