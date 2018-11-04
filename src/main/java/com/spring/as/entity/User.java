@@ -18,29 +18,26 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@PropertySource("classpath:config.properties")
 public class User implements UserDetails {
 
     @Id
     @Getter
     @Setter
-    @NotNull
-    @Size(min = 4, max = 15, message = "${username.invalid_range}")
-    @NotBlank(message = "${username.not_empty}")
     @Column(name = "username", unique = true)
+    @NotBlank(message = "{username.not_empty}")
+    @Size(min = 4, max = 15, message = "{username.invalid_range}")
     private String username;
 
     @Getter
     @Setter
-    @NotBlank
-    @Email
+    @Email(message = "{email.incorrect_value}")
     @Column(name = "email", unique = true)
     private String email;
 
     @Getter
     @Setter
     @Column(name = "password")
-    @NotBlank
+    @NotBlank(message = "{password.not_empty}")
     private String password;
 
     @Getter
