@@ -31,6 +31,7 @@ public class TaskRestController {
         if (bindingResult.hasErrors())
             return new ResponseEntity<>(new ErrorDetails(HttpStatus.BAD_REQUEST.toString(), bindingResult),
                     HttpStatus.BAD_REQUEST);
+        taskService.createTask(taskDTO);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 

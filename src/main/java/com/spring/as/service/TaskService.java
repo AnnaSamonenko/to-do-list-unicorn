@@ -17,9 +17,6 @@ public class TaskService {
     private TaskDAOImpl taskDAO;
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
     private ProjectService projectService;
 
     public List<Task> getAllTasks() {
@@ -27,13 +24,14 @@ public class TaskService {
     }
 
     public Task createTask(AddTaskDTO taskDTO) {
+        if (!projectService.isProjectPresent(taskDTO.getProjectName()))
+            throw new IllegalArgumentException("Project with such name is not present");
         Task task = new Task();
-        User user = userService.getAuthorizedUser();
         task.setDate(LocalDate.now());
         task.setDescription(taskDTO.getDescription());
         task.setTitle(taskDTO.getTitle());
 
-        task.setProject(projectService.findProjectByProjectName(user, taskDTO.getProjectName()));
+        task.setProject(projectService.findProjectByProjectName(taskDTO.getProjectName()));
         taskDAO.create(task);
         return task;
     }

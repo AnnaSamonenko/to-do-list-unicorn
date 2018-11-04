@@ -9,7 +9,7 @@ public class AddTaskDTO {
 
     @Getter
     @Setter
-    @NotBlank(message = "{task.not_empty}")
+    @NotBlank(message = "{task.title.not_empty}")
     private String title;
 
     @Getter

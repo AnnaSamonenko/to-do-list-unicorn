@@ -25,7 +25,7 @@ public class Project {
     @Getter
     @Setter
     @Column(name = "project_name")
-    @NotBlank(message = "{project.not_empty}")
+    @NotBlank(message = "{project.name.not_empty}")
     private String name;
 
     @Getter

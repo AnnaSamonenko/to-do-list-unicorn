@@ -28,7 +28,7 @@ public class ProjectRestController {
 
         projectService.createProject(project);
 
-        return new ResponseEntity(project, HttpStatus.CREATED);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @GetMapping("/all")
