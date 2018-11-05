@@ -47,6 +47,12 @@ public class UserService implements UserDetailsService {
         userDAO.update(user);
     }
 
+    public void delete(String username) {
+        if (userDAO.read(username) == null)
+            throw new UsernameNotFoundException("No user found with username " + username);
+        userDAO.delete(username);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) {
         if (userDAO.read(username) == null)

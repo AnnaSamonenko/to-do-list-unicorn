@@ -1,4 +1,4 @@
-package com.spring.as.controller.rest;
+package com.spring.as.controller;
 
 import com.spring.as.validation.ErrorDetails;
 import org.springframework.http.HttpStatus;

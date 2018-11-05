@@ -35,4 +35,10 @@ public class ProjectRestController {
         return projectService.getProjects();
     }
 
+    @DeleteMapping("/id")
+    public ResponseEntity deleteProject(long id) {
+        projectService.deleteProject(id);
+        return new ResponseEntity(HttpStatus.ACCEPTED);
+    }
+
 }

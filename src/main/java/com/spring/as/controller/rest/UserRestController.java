@@ -45,4 +45,10 @@ public class UserRestController {
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
+    @DeleteMapping("/username")
+    public ResponseEntity deleteAccount(@PathVariable("username") String username) {
+        userService.delete(username);
+        return new ResponseEntity(HttpStatus.ACCEPTED);
+    }
+
 }

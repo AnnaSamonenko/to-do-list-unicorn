@@ -31,6 +31,12 @@ public class ProjectService {
         userService.update(user);
     }
 
+    public void deleteProject(long id) {
+        if (projectDAO.read(id) == null)
+            throw new IllegalArgumentException("There is no project with id: " + id);
+        projectDAO.delete(id);
+    }
+
     public List<Project> getProjects() {
         return userService.getAuthorizedUser().getProjects();
     }

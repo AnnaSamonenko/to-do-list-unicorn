@@ -41,4 +41,10 @@ public class TaskService {
         return taskDAO.read(id);
     }
 
+    public void deleteTask(long id) {
+        if (taskDAO.read(id) == null)
+            throw new IllegalArgumentException("There no task with id" + id);
+        taskDAO.delete(id);
+    }
+
 }
