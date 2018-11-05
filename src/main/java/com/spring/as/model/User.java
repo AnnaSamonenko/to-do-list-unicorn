@@ -43,6 +43,10 @@ public class User implements UserDetails {
     @Column(name = "role")
     private String role;
 
+    @Setter
+    @Column(name = "enabled")
+    private boolean enabled;
+
     @Getter
     @Setter
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
@@ -70,6 +74,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
     }
 }

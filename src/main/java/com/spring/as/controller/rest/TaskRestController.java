@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/rest/task")
+@RequestMapping(path = "/api/task")
 public class TaskRestController {
 
     @Autowired

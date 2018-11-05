@@ -1,6 +1,6 @@
 package com.spring.as.service;
 
-import com.spring.as.dao.TaskDAOImpl;
+import com.spring.as.dao.TaskDAO;
 import com.spring.as.dto.AddTaskDTO;
 import com.spring.as.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,18 +10,15 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class TaskService {
+public class TaskService implements ITaskService {
 
     @Autowired
-    private TaskDAOImpl taskDAO;
+    private TaskDAO taskDAO;
 
     @Autowired
     private ProjectService projectService;
 
-    public List<Task> getAllTasks() {
-        return taskDAO.getAll();
-    }
-
+    @Override
     public Task createTask(AddTaskDTO taskDTO) {
         if (!projectService.isProjectPresent(taskDTO.getProjectName()))
             throw new IllegalArgumentException("Project with such name is not present");
@@ -35,16 +32,23 @@ public class TaskService {
         return task;
     }
 
+    @Override
     public Task getTask(long id) {
         if (taskDAO.read(id) == null)
             throw new IllegalArgumentException("There no task with id" + id);
         return taskDAO.read(id);
     }
 
+    @Override
     public void deleteTask(long id) {
         if (taskDAO.read(id) == null)
             throw new IllegalArgumentException("There no task with id" + id);
         taskDAO.delete(id);
+    }
+
+    @Override
+    public List<Task> getAllTasks() {
+        return taskDAO.getAll();
     }
 
 }

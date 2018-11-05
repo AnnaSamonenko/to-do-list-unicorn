@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rest/project")
+@RequestMapping("/api/project")
 public class ProjectRestController {
 
     @Autowired
@@ -35,7 +35,7 @@ public class ProjectRestController {
         return projectService.getProjects();
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public ResponseEntity deleteProject(long id) {
         projectService.deleteProject(id);
         return new ResponseEntity(HttpStatus.ACCEPTED);

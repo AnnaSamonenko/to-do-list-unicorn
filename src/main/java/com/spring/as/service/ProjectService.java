@@ -1,6 +1,6 @@
 package com.spring.as.service;
 
-import com.spring.as.dao.ProjectDAOImpl;
+import com.spring.as.dao.ProjectDAO;
 import com.spring.as.model.Project;
 import com.spring.as.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.List;
 public class ProjectService {
 
     @Autowired
-    private ProjectDAOImpl projectDAO;
+    private ProjectDAO projectDAO;
 
     @Autowired
     private UserService userService;

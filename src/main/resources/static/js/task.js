@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //print all data from db
     $.ajax({
-        url: "https://to-do-app21.herokuapp.com/rest/task/all"
+        url: "http://localhost:8080/api/task/all"
     }).then(function (data) {
         var task_data = '';
         $.each(data, function (key, value) {

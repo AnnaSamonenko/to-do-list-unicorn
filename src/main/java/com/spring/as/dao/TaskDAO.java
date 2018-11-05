@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class TaskDAOImpl implements GenericDAO<Task, Long> {
+public class TaskDAO implements GenericDAO<Task, Long> {
 
     @PersistenceContext
     private EntityManager em;

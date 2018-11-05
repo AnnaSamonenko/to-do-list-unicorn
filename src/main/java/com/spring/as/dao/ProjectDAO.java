@@ -10,9 +10,10 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
+// TODO: refactor me! (PS ProjectDAO)
 @Repository
 @Transactional
-public class ProjectDAOImpl implements GenericDAO<Project, Long> {
+public class ProjectDAO implements GenericDAO<Project, Long> {
 
     @PersistenceContext
     private EntityManager em;

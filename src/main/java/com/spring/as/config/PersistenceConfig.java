@@ -73,7 +73,7 @@ public class PersistenceConfig implements WebMvcConfigurer {
         Properties properties = new Properties();
         properties.setProperty("spring.jpa.show-sql", "false");
         properties.setProperty("spring.jpa.generate-ddl", "true");
-        properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+        properties.setProperty("hibernate.hbm2ddl.auto", "createAccount-drop");
         properties.setProperty("hibernate.dialect", jpaHibernateDialect);
         properties.setProperty("hibernate.temp.use_jdbc_metadata_defaults", "false");
         return properties;
@@ -81,7 +81,7 @@ public class PersistenceConfig implements WebMvcConfigurer {
 
     Properties devAdditionalProperties() {
         Properties properties = new Properties();
-        properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+        properties.setProperty("hibernate.hbm2ddl.auto", "createAccount-drop");
         properties.setProperty("hibernate.dialect", jpaHibernateDialect);
         return properties;
     }

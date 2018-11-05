@@ -3,7 +3,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             contentType: "application/json; charset=utf-8",
-            url: "https://to-do-app21.herokuapp.com/rest/project/add",
+            url: "http://localhost:8080/api/project/add",
             data: JSON.stringify({
                 name: $("#title").val()
             }),
@@ -19,7 +19,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             contentType: "application/json; charset=utf-8",
-            url: "https://to-do-app21.herokuapp.com/rest/task/add",
+            url: "http://localhost:8080/api/task/add",
             data: JSON.stringify({
                 title: $("#task_title").val(),
                 description: $("#task_description").val(),

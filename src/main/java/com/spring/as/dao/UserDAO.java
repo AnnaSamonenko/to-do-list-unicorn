@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class UserDAOImpl implements GenericDAO<User, String> {
+public class UserDAO implements GenericDAO<User, String> {
 
     @PersistenceContext
     private EntityManager em;
