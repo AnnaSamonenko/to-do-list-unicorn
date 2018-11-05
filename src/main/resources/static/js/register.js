@@ -3,7 +3,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             contentType: "application/json; charset=utf-8",
-            url: "http://localhost:8080/api/user/add",
+            url: "http://localhost:8080/api/user/registration",
             data: JSON.stringify({
                 username: $("#name").val(),
                 email: $("#email").val(),
