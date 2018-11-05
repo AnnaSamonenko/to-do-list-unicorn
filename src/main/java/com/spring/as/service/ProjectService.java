@@ -1,8 +1,8 @@
 package com.spring.as.service;
 
 import com.spring.as.dao.ProjectDAOImpl;
-import com.spring.as.entity.Project;
-import com.spring.as.entity.User;
+import com.spring.as.model.Project;
+import com.spring.as.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

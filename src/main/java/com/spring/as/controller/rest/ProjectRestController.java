@@ -1,6 +1,6 @@
 package com.spring.as.controller.rest;
 
-import com.spring.as.entity.Project;
+import com.spring.as.model.Project;
 import com.spring.as.service.ProjectService;
 import com.spring.as.validation.ErrorDetails;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,6 @@ public class ProjectRestController {
                     HttpStatus.BAD_REQUEST);
 
         projectService.createProject(project);
-
         return new ResponseEntity(HttpStatus.CREATED);
     }
 

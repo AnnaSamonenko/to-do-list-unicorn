@@ -1,6 +1,6 @@
 package com.spring.as.dao;
 
-import com.spring.as.entity.Task;
+import com.spring.as.model.Task;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;

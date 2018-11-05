@@ -1,6 +1,6 @@
 package com.spring.as.controller.rest;
 
-import com.spring.as.entity.User;
+import com.spring.as.model.User;
 import com.spring.as.service.UserService;
 import com.spring.as.validation.ErrorDetails;
 import org.springframework.beans.factory.annotation.Autowired;

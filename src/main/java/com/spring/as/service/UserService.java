@@ -1,7 +1,7 @@
 package com.spring.as.service;
 
 import com.spring.as.dao.UserDAOImpl;
-import com.spring.as.entity.User;
+import com.spring.as.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -27,12 +27,14 @@ public class UserService implements UserDetailsService {
     }
 
     public User getUser(String username) {
+        if (userDAO.read(username) == null)
+            throw new UsernameNotFoundException("No user found with username " + username);
         return userDAO.read(username);
     }
 
     public void create(User user) {
-        if (userDAO.isUsernamePresent(user.getUsername()))
-            throw new IllegalArgumentException("Username is already present");
+        if (userDAO.read(user.getUsername()) != null)
+            throw new IllegalArgumentException("User with such username is already present");
         if (userDAO.isEmailPresent(user.getEmail()))
             throw new IllegalArgumentException("Email is already present");
 
@@ -45,16 +47,11 @@ public class UserService implements UserDetailsService {
         userDAO.update(user);
     }
 
-    public boolean existsByEmail(String email) {
-        return userDAO.isEmailPresent(email);
-    }
-
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user = userDAO.read(s);
-        if (user == null)
-            throw new UsernameNotFoundException("No user found with username " + s);
-        return userDAO.read(s);
+    public UserDetails loadUserByUsername(String username) {
+        if (userDAO.read(username) == null)
+            throw new UsernameNotFoundException("No user found with username " + username);
+        return userDAO.read(username);
     }
 
     public User getAuthorizedUser() {

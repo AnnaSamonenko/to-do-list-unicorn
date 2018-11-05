@@ -39,7 +39,7 @@ public class PersistenceConfig implements WebMvcConfigurer {
         LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[]{"com.spring.as.entity"});
+        em.setPackagesToScan(new String[]{"com.spring.as.model"});
 
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(prodAdditionalProperties());
@@ -52,7 +52,7 @@ public class PersistenceConfig implements WebMvcConfigurer {
         LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[]{"com.spring.as.entity"});
+        em.setPackagesToScan(new String[]{"com.spring.as.model"});
 
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(devAdditionalProperties());

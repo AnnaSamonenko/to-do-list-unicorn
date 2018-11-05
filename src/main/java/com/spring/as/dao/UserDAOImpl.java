@@ -1,6 +1,6 @@
 package com.spring.as.dao;
 
-import com.spring.as.entity.User;
+import com.spring.as.model.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -49,7 +49,4 @@ public class UserDAOImpl implements GenericDAO<User, String> {
         return !users.isEmpty();
     }
 
-    public boolean isUsernamePresent(String username) {
-        return read(username) != null;
-    }
 }

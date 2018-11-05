@@ -1,7 +1,7 @@
 package com.spring.as.controller.rest;
 
 import com.spring.as.dto.AddTaskDTO;
-import com.spring.as.entity.Task;
+import com.spring.as.model.Task;
 import com.spring.as.service.TaskService;
 import com.spring.as.validation.ErrorDetails;
 import org.springframework.beans.factory.annotation.Autowired;

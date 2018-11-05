@@ -2,8 +2,7 @@ package com.spring.as.service;
 
 import com.spring.as.dao.TaskDAOImpl;
 import com.spring.as.dto.AddTaskDTO;
-import com.spring.as.entity.Task;
-import com.spring.as.entity.User;
+import com.spring.as.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,13 +30,14 @@ public class TaskService {
         task.setDeadline(taskDTO.getDeadline());
         task.setDescription(taskDTO.getDescription());
         task.setTitle(taskDTO.getTitle());
-
         task.setProject(projectService.findProjectByProjectName(taskDTO.getProjectName()));
         taskDAO.create(task);
         return task;
     }
 
     public Task getTask(long id) {
+        if (taskDAO.read(id) == null)
+            throw new IllegalArgumentException("There no task with id" + id);
         return taskDAO.read(id);
     }
 

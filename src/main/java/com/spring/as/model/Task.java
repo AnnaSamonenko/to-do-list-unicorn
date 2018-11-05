@@ -1,4 +1,4 @@
-package com.spring.as.entity;
+package com.spring.as.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
