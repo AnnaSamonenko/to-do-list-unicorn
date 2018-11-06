@@ -21,5 +21,22 @@ $(document).ready(function () {
            });
        });
 
+       $(".login").click(function () {
+                  $.ajax({
+                      type: "POST",
+                      contentType: "application/json; charset=utf-8",
+                      url: "http://localhost:8080/login",
+                      data: JSON.stringify({
+                          username: $("#uname").val(),
+                          password: $("#pass").val()
+                      }),
+                      timeout: 100000,
+                      success: function (response) {
+                      },
+                      error: function (e) {
+                      }
+                  });
+              });
+
 });
 

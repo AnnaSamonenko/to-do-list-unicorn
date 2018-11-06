@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <!--<link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">-->
     <link rel="stylesheet" href="css/login.css">
-    <!--<script src="js/register.js"></script>-->
     <script src="js/login.js"></script>
 </head>
 <body>
@@ -21,10 +19,10 @@
             <button class="registration">create</button>
             <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
-        <form class="login-form" name="f" id="login-form" th:action="@{/login}" method="POST">
-            <input type="text" placeholder="username" name="username"/>
-            <input type="password" placeholder="password" name="password"/>
-            <button type="submit">login</button>
+        <form class="login-form" name="f" id="login-form" method="POST">
+            <input type="text" placeholder="username" name="username" id="uname"/>
+            <input type="password" placeholder="password" name="password" id="pass"/>
+            <button class="login">login</button>
             <p class="message">Not registered? <a href="#">Create an account</a></p>
         </form>
     </div>
