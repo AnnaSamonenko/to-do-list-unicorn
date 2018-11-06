@@ -3,7 +3,6 @@
 2. Migrate to Angular(Front-end part).
 3. Add opportunity reset password.
 4. Add opportunity to login with gmail(facebook account).
-5. Change login and registration page(design).
 6. Create documentation for endpoints. 
 7. Update EER diagram.
 8. Add spring tests.
@@ -13,10 +12,10 @@
 
 # Example of usage:
 Registration page:
-![register](https://user-images.githubusercontent.com/17299069/47163109-00b22080-d2fe-11e8-9a0f-eaac9e279655.PNG)
+![registration](https://user-images.githubusercontent.com/17299069/48068042-72cda500-e1da-11e8-8d8a-b183259e83c9.PNG)
 
 Login page:
-![login](https://user-images.githubusercontent.com/17299069/47163211-335c1900-d2fe-11e8-90d1-505a2d60c7c8.PNG)
+![login](https://user-images.githubusercontent.com/17299069/48068030-68aba680-e1da-11e8-8042-7d7b5cdbf9f3.PNG)
 
 Main page:
 
