@@ -57,7 +57,6 @@ $(document).ready(function () {
             $(".new_task_form").hide();
         });
 
-        //
         $("button.add_project").click(function () {
             $(".new_project_form").show();
         });

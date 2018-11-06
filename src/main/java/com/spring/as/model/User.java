@@ -50,7 +50,7 @@ public class User implements UserDetails {
     @Getter
     @Column(name = "enabled")
     @Type(type="true_false")
-    private Boolean enabled = false;
+    private Boolean enabled = true;
 
     @Getter
     @Setter

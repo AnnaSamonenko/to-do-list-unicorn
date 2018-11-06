@@ -1,0 +1,22 @@
+body {
+   background: #9053c7;
+     background: -webkit-linear-gradient(right, #c850c0, #4158d0);
+     background: -o-linear-gradient(right, #c850c0, #4158d0);
+     background: -moz-linear-gradient(right, #c850c0, #4158d0);
+     background: linear-gradient(to left, #c850c0, #4158d0);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.new_project_form{
+    display:none;
+}
+
+.new_task_form {
+    display:none;
+}
+
+.container{
+    background: #f2f2f2;
+}
