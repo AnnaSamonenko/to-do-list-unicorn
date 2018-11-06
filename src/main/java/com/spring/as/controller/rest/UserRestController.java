@@ -10,7 +10,9 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
@@ -18,7 +20,6 @@ import org.springframework.web.context.request.WebRequest;
 import javax.validation.Valid;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 
 @RestController
 @RequestMapping("/api/user")
@@ -58,16 +59,11 @@ public class UserRestController {
         } catch (Exception e) {
             throw new IllegalArgumentException(e.getMessage());
         }
-
-        //TODO: SecurityContextHolder
-//        Authentication auth = new UsernamePasswordAuthenticationToken(user, user.getPassword(), user.getAuthorities());
-//        SecurityContextHolder.getContext().setAuthentication(auth);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
-    //TODO: confirmRegistration
     @GetMapping(value = "/registration-confirmation")
-    public ResponseEntity confirmRegistration(WebRequest request, Model model, @RequestParam("token") String token) {
+    public ResponseEntity confirmRegistration(@RequestParam("token") String token) {
 
         VerificationToken verificationToken = userService.getVerificationToken(token);
         if (verificationToken == null)
@@ -80,6 +76,8 @@ public class UserRestController {
 
         user.setEnabled(true);
         userService.update(user);
+        Authentication auth = new UsernamePasswordAuthenticationToken(user, user.getPassword(), user.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(auth);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 

@@ -1,6 +1,7 @@
 package com.spring.as.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "verification_token")
+@NoArgsConstructor
 public class VerificationToken {
     private static final int EXPIRATION = 60 * 24;
 
@@ -29,15 +31,14 @@ public class VerificationToken {
     @JoinColumn(nullable = false, name = "username")
     private User user;
 
-    @Getter
     @Setter
     @Column(name = "expiry_date")
     private Date expiryDate;
 
-    private Date calculateExpiryDate(int expiryTimeInMinutes) {
+    public Date getExpiryDate() {
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Timestamp(cal.getTime().getTime()));
-        cal.add(Calendar.MINUTE, expiryTimeInMinutes);
+        cal.add(Calendar.MINUTE, EXPIRATION);
         return new Date(cal.getTime().getTime());
     }
 

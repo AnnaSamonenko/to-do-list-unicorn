@@ -8,7 +8,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-//TODO: implement me! (ps VerificationTokenDAO)
 @Repository
 @Transactional
 public class VerificationTokenDAO {
@@ -21,10 +20,6 @@ public class VerificationTokenDAO {
         query.setParameter("token", token);
         return (VerificationToken) query.getResultList().get(0);
     }
-
-//    public VerificationToken findByUser() {
-//        return null;
-//    }
 
     public void save(VerificationToken verificationToken) {
         em.persist(verificationToken);

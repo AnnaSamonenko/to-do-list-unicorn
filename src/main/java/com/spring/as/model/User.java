@@ -1,7 +1,10 @@
 package com.spring.as.model;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +19,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
+@NoArgsConstructor
 public class User implements UserDetails {
 
     @Id
@@ -44,8 +48,10 @@ public class User implements UserDetails {
     private String role;
 
     @Setter
+    @Getter
     @Column(name = "enabled")
-    private boolean enabled;
+    @Type(type="true_false")
+    private Boolean enabled = false;
 
     @Getter
     @Setter
@@ -76,4 +82,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return enabled;
     }
+
 }
