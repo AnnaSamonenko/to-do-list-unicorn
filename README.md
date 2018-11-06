@@ -3,18 +3,20 @@
 2. Migrate to Angular(Front-end part).
 3. Add opportunity reset password.
 4. Add opportunity to login with gmail(facebook account).
-6. Create documentation for endpoints. 
-7. Update EER diagram.
-8. Add spring tests.
+5. Create documentation for endpoints. 
+6. Update EER diagram.
+7. Add spring tests.
 
 # EER diagram:
 ![hibernate](https://user-images.githubusercontent.com/17299069/47139391-671a4d00-d2c4-11e8-89fc-4f0a184b0c65.png)
 
 # Example of usage:
 Registration page:
+
 ![registration](https://user-images.githubusercontent.com/17299069/48068042-72cda500-e1da-11e8-8d8a-b183259e83c9.PNG)
 
 Login page:
+
 ![login](https://user-images.githubusercontent.com/17299069/48068030-68aba680-e1da-11e8-8042-7d7b5cdbf9f3.PNG)
 
 Main page:
