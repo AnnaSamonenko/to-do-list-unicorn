@@ -46,8 +46,22 @@ $(document).ready(function () {
                 task_data += '<td>' + value.deadline + '</td>';
                 task_data += '</tr>';
             });
-            $('.table').append(task_data);
+            $('table.tasks').append(task_data);
         });
+
+          $.ajax({
+                    url: "http://localhost:8080/api/project/all"
+                }).then(function (data) {
+                    var task_data = '';
+                    $.each(data, function (key, value) {
+                        task_data += '<tr>';
+                        task_data += '<td>' + value.project_name + '</td>';
+                        task_data += '</tr>';
+                    });
+                    $('table.projects_table').append(task_data);
+                });
+
+
 
         $("button.add_task").click(function () {
             $(".new_task_form").show();

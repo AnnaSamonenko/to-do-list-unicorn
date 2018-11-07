@@ -1,5 +1,6 @@
 body {
    background: #9053c7;
+   padding: 20px;
      background: -webkit-linear-gradient(right, #c850c0, #4158d0);
      background: -o-linear-gradient(right, #c850c0, #4158d0);
      background: -moz-linear-gradient(right, #c850c0, #4158d0);
@@ -17,6 +18,12 @@ body {
     display:none;
 }
 
-.container{
-    background: #f2f2f2;
+.projects {
+    float: left;
+    width:30%;
+}
+
+.tasks{
+    float: left;
+     width: 70%;
 }

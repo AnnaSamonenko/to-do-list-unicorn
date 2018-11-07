@@ -9,59 +9,74 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand nav-link" href="#">To do list</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="/logout" class="nav-link">Logout</a></li>
-            </ul>
+<!-- header block -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand nav-link" href="#">To do list</a>
         </div>
-    </nav>
+        <ul class="nav navbar-nav">
+            <li><a href="/logout" class="nav-link">Logout</a></li>
+        </ul>
+    </div>
+</nav>
 
-    <table class="table table-striped">
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Date</th>
-            <th>Deadline</th>
-        </tr>
-    </table>
-    <button type="button" class="add_task btn btn-secondary">Add task</button>
-    <button type="button" class="add_project btn btn-secondary">Add project</button>
-
-    <div class="new_task_form">
-        <form>
-            <div class="form-group">
-                Title: <input type="text" name="title" id="task_title"><br>
-            </div>
-            <div class="form-group">
-                Description: <input type="text" name="description" id="task_description"><br>
-            </div>
-            <div class="form-group">
-                Project: <input type="text" class="project_name" id="project_name">
-            </div>
-            <div class="form-group">
-                End date: <input type="date" id="deadline" name="deadline"
-                                 value="2018-07-29"
-                                 min="2018-01-01" max="2018-12-31"/>
-            </div>
-            <input type="button" value="close" class="close_task_form btn">
-            <input type="submit" value="submit" id="submit_task_form" class="btn">
-        </form>
+<div class="row">
+    <!--project block-->
+    <div class="projects">
+        <table class="projects_table table table-striped">
+            <tr>
+                <th>Projects:</th>
+            </tr>
+        </table>
     </div>
 
-    <div class="new_project_form">
-        <form>
-            <div class="form-group">
-                Project title: <input type="text" name="title" id="title"><br>
-            </div>
-            <input type="button" value="close" class="close_project_form btn">
-            <input type="submit" value="submit" id="submit_project_form" class="btn">
-        </form>
+    <!--table with tasks-->
+    <div class="tasks">
+        <table class="tasks table table-striped">
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Deadline</th>
+            </tr>
+        </table>
+        <button type="button" class="add_task btn btn-secondary">Add task</button>
+        <button type="button" class="add_project btn btn-secondary">Add project</button>
     </div>
+
+</div>
+
+
+<div class="new_task_form">
+    <form>
+        <div class="form-group">
+            Title: <input type="text" name="title" id="task_title"><br>
+        </div>
+        <div class="form-group">
+            Description: <input type="text" name="description" id="task_description"><br>
+        </div>
+        <div class="form-group">
+            Project: <input type="text" class="project_name" id="project_name">
+        </div>
+        <div class="form-group">
+            End date: <input type="date" id="deadline" name="deadline"
+                             value="2018-07-29"
+                             min="2018-01-01" max="2018-12-31"/>
+        </div>
+        <input type="button" value="close" class="close_task_form btn">
+        <input type="submit" value="submit" id="submit_task_form" class="btn">
+    </form>
+</div>
+
+<div class="new_project_form">
+    <form>
+        <div class="form-group">
+            Project title: <input type="text" name="title" id="title"><br>
+        </div>
+        <input type="button" value="close" class="close_project_form btn">
+        <input type="submit" value="submit" id="submit_project_form" class="btn">
+    </form>
 </div>
 </body>
 </html>
