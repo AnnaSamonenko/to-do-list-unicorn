@@ -1,17 +1,23 @@
 package com.spring.as.config;
 
-import org.springframework.beans.factory.config.PropertiesFactoryBean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
 
 @Configuration
-//@PropertySource("classpath:mail.properties")
+@PropertySource("classpath:mail.properties")
 public class MailConfig {
+
+    @Value("${mail.sender.username}")
+    private String email;
+
+    @Value("${mail.sender.password}")
+    private String password;
 
     @Bean
     public JavaMailSender getJavaMailSender() {
@@ -19,8 +25,8 @@ public class MailConfig {
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
 
-        mailSender.setUsername("urtodolist21@gmail.com");
-        mailSender.setPassword("password21,");
+        mailSender.setUsername(email);
+        mailSender.setPassword(password);
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");
@@ -29,12 +35,5 @@ public class MailConfig {
         props.put("mail.debug", "true");
 
         return mailSender;
-    }
-
-    @Bean
-    public PropertiesFactoryBean mailProperties() {
-        PropertiesFactoryBean bean = new PropertiesFactoryBean();
-        bean.setLocation(new ClassPathResource("mail.properties"));
-        return bean;
     }
 }
