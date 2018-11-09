@@ -4,12 +4,18 @@ import com.spring.as.repository.ProjectDAO;
 import com.spring.as.model.Project;
 import com.spring.as.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@PropertySource("classpath:validation.properties")
 public class ProjectService {
+
+    @Autowired
+    private Environment env;
 
     @Autowired
     private ProjectDAO projectDAO;
@@ -21,7 +27,7 @@ public class ProjectService {
         User user = userService.getAuthorizedUser();
 
         if (isProjectPresent(project.getName()))
-            throw new IllegalArgumentException("Project with such name is already present");
+            throw new IllegalArgumentException(env.getProperty("project.already_present"));
 
         project.setUser(user);
         projectDAO.create(project);
@@ -33,7 +39,7 @@ public class ProjectService {
 
     public void deleteProject(long id) {
         if (projectDAO.read(id) == null)
-            throw new IllegalArgumentException("There is no project with id: " + id);
+            throw new IllegalArgumentException(env.getProperty("project.not_found"));
         projectDAO.delete(id);
     }
 
@@ -49,7 +55,7 @@ public class ProjectService {
                 return pr;
             }
         }
-        throw new IllegalArgumentException("You don't have such project");
+        throw new IllegalArgumentException(env.getProperty("project.not_found"));
     }
 
     public boolean isProjectPresent(String projectName) {

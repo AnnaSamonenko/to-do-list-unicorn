@@ -11,6 +11,7 @@ public class ErrorDetails {
 
     @Getter
     private String status;
+
     @Getter
     private List<String> messages = new ArrayList<>();
 

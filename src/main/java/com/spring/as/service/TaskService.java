@@ -4,12 +4,15 @@ import com.spring.as.repository.TaskDAO;
 import com.spring.as.dto.AddTaskDTO;
 import com.spring.as.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
+@PropertySource("classpath:validation.properties")
 public class TaskService implements ITaskService {
 
     @Autowired
@@ -18,10 +21,13 @@ public class TaskService implements ITaskService {
     @Autowired
     private ProjectService projectService;
 
+    @Autowired
+    private Environment env;
+
     @Override
     public Task createTask(AddTaskDTO taskDTO) {
         if (!projectService.isProjectPresent(taskDTO.getProjectName()))
-            throw new IllegalArgumentException("Project with such name is not present");
+            throw new IllegalArgumentException(env.getProperty("project.not_found"));
         Task task = new Task();
         task.setDate(LocalDate.now());
         task.setDeadline(taskDTO.getDeadline());
@@ -34,15 +40,13 @@ public class TaskService implements ITaskService {
 
     @Override
     public Task getTask(long id) {
-        if (taskDAO.read(id) == null)
-            throw new IllegalArgumentException("There no task with id" + id);
+        verifyingOfTaskPresence(id);
         return taskDAO.read(id);
     }
 
     @Override
     public void deleteTask(long id) {
-        if (taskDAO.read(id) == null)
-            throw new IllegalArgumentException("There no task with id" + id);
+        verifyingOfTaskPresence(id);
         taskDAO.delete(id);
     }
 
@@ -51,4 +55,8 @@ public class TaskService implements ITaskService {
         return taskDAO.getAll();
     }
 
+    private void verifyingOfTaskPresence(long id) {
+        if (taskDAO.read(id) == null)
+            throw new IllegalArgumentException(env.getProperty("task.not_fount") + " " + id);
+    }
 }
