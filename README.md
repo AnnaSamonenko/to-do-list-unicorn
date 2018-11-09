@@ -1,11 +1,10 @@
 # Simple project for studying Spring Boot:
 1. Refactor services.
-2. Migrate to Angular(Front-end part).
+2. Design index.html.
 3. Add opportunity reset password.
-4. Add opportunity to login with gmail(facebook account).
-5. Create documentation for endpoints. 
-6. Update EER diagram.
-7. Add spring tests.
+4. Add opportunity to login with gmail(facebook account). 
+5. Update EER diagram.
+6. Add spring tests.
 
 # EER diagram:
 ![hibernate](https://user-images.githubusercontent.com/17299069/47139391-671a4d00-d2c4-11e8-89fc-4f0a184b0c65.png)
