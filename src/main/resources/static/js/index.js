@@ -63,12 +63,21 @@ $(document).ready(function () {
 
 
 
-        $("button.add_task").click(function () {
-            $(".new_task_form").show();
+        $(".add_task").click(function () {
+          var task_data = '';
+                        task_data += '<tr class="to_add">';
+                        task_data += '<td> <input type="text" name="title" id="task_title"> </td>';
+                        task_data += '<td> <input type="text" name="description" id="task_description"> </td>';
+                        task_data += '<td> NN </td>';
+                        task_data += '<td> <input type="date" id="deadline" name="deadline" value="2018-07-29" min="2018-01-01" max="2018-12-31"/> </td>';
+                        task_data += '</tr>';
+            $('table.tasks').append(task_data);
+            $('table.tasks').append('<input type="image" src="img/img1.png" class="close_task_form" width="48" height="48" class="to_add">');
         });
 
         $(".close_task_form").click(function () {
-            $(".new_task_form").hide();
+            alert("it wordls");
+            $(".to_add").toggle();
         });
 
         $("button.add_project").click(function () {
