@@ -1,6 +1,6 @@
 package com.spring.as.service;
 
-import com.spring.as.dao.ProjectDAO;
+import com.spring.as.repository.ProjectDAO;
 import com.spring.as.model.Project;
 import com.spring.as.model.User;
 import org.springframework.beans.factory.annotation.Autowired;

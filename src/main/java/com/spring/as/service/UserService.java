@@ -1,7 +1,7 @@
 package com.spring.as.service;
 
-import com.spring.as.dao.UserDAO;
-import com.spring.as.dao.VerificationTokenDAO;
+import com.spring.as.repository.UserDAO;
+import com.spring.as.repository.VerificationTokenDAO;
 import com.spring.as.model.User;
 import com.spring.as.model.VerificationToken;
 import org.springframework.beans.factory.annotation.Autowired;

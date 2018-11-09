@@ -1,6 +1,6 @@
 package com.spring.as.service;
 
-import com.spring.as.dao.TaskDAO;
+import com.spring.as.repository.TaskDAO;
 import com.spring.as.dto.AddTaskDTO;
 import com.spring.as.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;

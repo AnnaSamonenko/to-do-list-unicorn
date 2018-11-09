@@ -1,4 +1,4 @@
-package com.spring.as.dao;
+package com.spring.as.repository;
 
 import com.spring.as.model.Project;
 import com.spring.as.model.User;
@@ -10,7 +10,7 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
-// TODO: refactor me! (PS ProjectDAO)
+// TODO: refactor me, please! (PS ProjectDAO)
 @Repository
 @Transactional
 public class ProjectDAO implements GenericDAO<Project, Long> {

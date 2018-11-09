@@ -31,9 +31,6 @@ public class UserRestController {
     @Autowired
     ApplicationEventPublisher eventPublisher;
 
-    @Autowired
-    private MessageSource messages;
-
     @GetMapping(path = "/all")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
