@@ -1,29 +1,29 @@
 body {
-   background: #9053c7;
-     background: -webkit-linear-gradient(right, #c850c0, #4158d0);
-     background: -o-linear-gradient(right, #c850c0, #4158d0);
-     background: -moz-linear-gradient(right, #c850c0, #4158d0);
-     background: linear-gradient(to left, #c850c0, #4158d0);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    background: #9053c7;
+    background: -webkit-linear-gradient(right, #c850c0, #4158d0);
+    background: -o-linear-gradient(right, #c850c0, #4158d0);
+    background: -moz-linear-gradient(right, #c850c0, #4158d0);
+    background: linear-gradient(to left, #c850c0, #4158d0);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.new_project_form{
-    display:none;
+.new_project_form {
+    display: none;
 }
 
 .new_task_form {
-    display:none;
+    display: none;
 }
 
-.content{
-   padding-top: 40px;
+.content {
+    padding-top: 40px;
 }
 
 .projects {
     float: left;
-    width:25%;
+    width: 25%;
     padding-right: 10px;
     padding-top: 20px;
     background-color: #E8E0EB;
@@ -42,10 +42,10 @@ body {
 }
 
 nav {
-    background-color:#E8E0EB;
+    background-color: #E8E0EB;
     color: black;
 }
 
 img {
-    width:5%;
+    width: 5%;
 }
