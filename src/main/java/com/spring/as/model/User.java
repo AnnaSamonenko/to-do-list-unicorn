@@ -16,44 +16,34 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
 public class User implements UserDetails {
 
     @Id
-    @Getter
-    @Setter
     @Column(name = "username", unique = true)
     @NotBlank(message = "{username.not_empty}")
     @Size(min = 4, max = 15, message = "{username.invalid_range}")
     private String username;
 
-    @Getter
-    @Setter
     @Email(message = "{email.incorrect_value}")
     @Column(name = "email", unique = true)
     private String email;
 
-    @Getter
-    @Setter
     @Column(name = "password")
     @NotBlank(message = "{password.not_empty}")
     private String password;
 
-    @Getter
-    @Setter
     @Column(name = "role")
     private String role;
 
-    @Setter
-    @Getter
     @Column(name = "enabled")
-    @Type(type="true_false")
+    @Type(type = "true_false")
     private Boolean enabled = true;
 
-    @Getter
-    @Setter
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Project> projects = new ArrayList<>();
 
