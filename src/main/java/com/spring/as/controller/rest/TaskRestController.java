@@ -2,7 +2,7 @@ package com.spring.as.controller.rest;
 
 import com.spring.as.dto.AddTaskDTO;
 import com.spring.as.model.Task;
-import com.spring.as.service.TaskService;
+import com.spring.as.service.TaskServiceImpl;
 import com.spring.as.validation.ErrorDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +18,7 @@ import java.util.List;
 public class TaskRestController {
 
     @Autowired
-    private TaskService taskService;
+    private TaskServiceImpl taskService;
 
     @GetMapping("/all")
     List<Task> getAll() {

@@ -3,7 +3,7 @@ package com.spring.as.controller.rest;
 import com.spring.as.mail.OnRegistrationCompleteEvent;
 import com.spring.as.model.User;
 import com.spring.as.model.VerificationToken;
-import com.spring.as.service.IUserService;
+import com.spring.as.service.UserService;
 import com.spring.as.validation.ErrorDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
@@ -25,7 +25,7 @@ import java.util.List;
 public class UserRestController {
 
     @Autowired
-    private IUserService userService;
+    private UserService userService;
 
     @Autowired
     ApplicationEventPublisher eventPublisher;

@@ -1,7 +1,7 @@
 package com.spring.as.controller.rest;
 
 import com.spring.as.model.Project;
-import com.spring.as.service.ProjectService;
+import com.spring.as.service.ProjectServiceImpl;
 import com.spring.as.validation.ErrorDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,7 @@ import java.util.List;
 public class ProjectRestController {
 
     @Autowired
-    private ProjectService projectService;
+    private ProjectServiceImpl projectService;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity create(@RequestBody @Valid Project project, BindingResult bindingResult) {

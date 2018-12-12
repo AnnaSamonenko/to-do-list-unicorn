@@ -1,7 +1,7 @@
 package com.spring.as.mail;
 
 import com.spring.as.model.User;
-import com.spring.as.service.IUserService;
+import com.spring.as.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.MessageSource;
@@ -15,7 +15,7 @@ import java.util.UUID;
 public class RegistrationListener implements ApplicationListener<OnRegistrationCompleteEvent> {
 
     @Autowired
-    private IUserService service;
+    private UserService service;
 
     @Autowired
     private MessageSource messages;
