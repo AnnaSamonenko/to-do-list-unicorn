@@ -6,13 +6,12 @@ import com.spring.as.repository.TaskDAO;
 import com.spring.as.repository.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-@Configuration
+@Component
 public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
     private static final String EMAIL = "anna_samonenko@gmail.com";
