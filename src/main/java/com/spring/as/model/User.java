@@ -1,8 +1,6 @@
 package com.spring.as.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Type;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -16,11 +14,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@Builder
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 @NoArgsConstructor
+@AllArgsConstructor
 public class User implements UserDetails {
 
     @Id

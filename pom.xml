@@ -17,7 +17,7 @@
     <properties>
         <lombok.version>1.16.8</lombok.version>
         <postgresql.verion>9.1-901.jdbc4</postgresql.verion>
-        <mysql.version>5.1.47</mysql.version>  <!--8.0.13-->
+        <mysql.version>8.0.13</mysql.version>
     </properties>
 
     <dependencies>
@@ -74,6 +74,13 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.2.10.Final</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
