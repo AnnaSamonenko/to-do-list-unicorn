@@ -1,5 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+body {
+    background-image: url(img/texture.png);
+    height: 100%;
+    background: #4682B4;
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 .login-page {
     width: 360px;
     padding: 8% 0 0;
@@ -33,7 +42,7 @@
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
-    background: #9053c7;
+    background: #4682B4;
     width: 100%;
     border: 0;
     padding: 15px;
@@ -101,15 +110,4 @@
 
 .container .info span .fa {
     color: #EF3B3A;
-}
-
-body {
-    background: #9053c7;
-    background: -webkit-linear-gradient(right, #c850c0, #4158d0);
-    background: -o-linear-gradient(right, #c850c0, #4158d0);
-    background: -moz-linear-gradient(right, #c850c0, #4158d0);
-    background: linear-gradient(to left, #c850c0, #4158d0);
-    font-family: "Roboto", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
