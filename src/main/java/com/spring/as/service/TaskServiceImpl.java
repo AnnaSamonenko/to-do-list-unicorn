@@ -31,7 +31,6 @@ public class TaskServiceImpl implements TaskService {
         Task task = new Task();
         task.setDate(LocalDate.now());
         task.setDeadline(taskDTO.getDeadline());
-        task.setDescription(taskDTO.getDescription());
         task.setTitle(taskDTO.getTitle());
         task.setProject(projectService.findProjectByProjectName(taskDTO.getProjectName()));
         taskDAO.create(task);

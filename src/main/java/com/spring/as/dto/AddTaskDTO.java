@@ -16,10 +16,6 @@ public class AddTaskDTO {
 
     @Getter
     @Setter
-    private String description;
-
-    @Getter
-    @Setter
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private LocalDate deadline;
 

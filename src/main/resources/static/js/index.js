@@ -22,7 +22,6 @@ $(document).ready(function () {
             url: "http://localhost:8080/api/task/add",
             data: JSON.stringify({
                 title: $("#task_title").val(),
-                description: $("#task_description").val(),
                 projectName: $("#project_name").val(),
                 deadline: $("#deadline").val()
             }),
@@ -41,9 +40,9 @@ $(document).ready(function () {
         $.each(data, function (key, value) {
             task_data += '<tr>';
             task_data += '<td>' + value.title + '</td>';
-            task_data += '<td>' + value.description + '</td>';
             task_data += '<td>' + value.date + '</td>';
             task_data += '<td>' + value.deadline + '</td>';
+            task_data += '<td> </td>';
             task_data += '</tr>';
         });
         $('table.tasks').append(task_data);
@@ -55,7 +54,7 @@ $(document).ready(function () {
         var task_data = '';
         $.each(data, function (key, value) {
             task_data += '<tr>';
-            task_data += '<td>' + value.project_name + '</td>';
+            task_data += '<td>' + value.name + '</td>';
             task_data += '</tr>';
         });
         $('table.projects_table').append(task_data);
@@ -65,7 +64,6 @@ $(document).ready(function () {
         var task_data = '';
         task_data += '<tr class="to_add">';
         task_data += '<td> <input type="text" name="title" id="task_title"> </td>';
-        task_data += '<td> <input type="text" name="description" id="task_description"> </td>';
         task_data += '<td> NN </td>';
         task_data += '<td> <input type="date" id="deadline" name="deadline" value="2018-07-29" min="2018-01-01" max="2018-12-31"/> </td>';
         task_data += '<td> <input type="image" src="img/img1.png" class="close_task_form" width="35" height="35">';

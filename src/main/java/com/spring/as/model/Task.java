@@ -1,8 +1,7 @@
 package com.spring.as.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,6 +9,9 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "task")
 public class Task {
@@ -22,9 +24,6 @@ public class Task {
 
     @Column(name = "title")
     private String title;
-
-    @Column(name = "description")
-    private String description;
 
     @Column(name = "date_of_creation")
     private LocalDate date;
