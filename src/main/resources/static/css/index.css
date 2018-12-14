@@ -1,10 +1,9 @@
-html{
+html {
     height: 100%;
 }
 
 body {
     height: 100%;
-    background: #4682B4;
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -20,7 +19,7 @@ body {
 
 .content {
     height: 90%;
-    margin-top:20px;
+    margin-top: 20px;
 
 }
 
@@ -36,11 +35,19 @@ body {
     height: 100%;
     float: right;
     width: 75%;
-    background-color:#FFFFFF;
+    background-color: #FFFFFF;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
 }
 
 nav {
-    background-image: url(img/texture.png);
-    background-color:#FFFFFF;
+    background-image: url(/img/texture.png);
+    background: #4682B4;
     color: black;
 }

@@ -1,9 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 body {
-    background-image: url(img/texture.png);
+    background-image: url(/img/texture.png);
     height: 100%;
-    background: #4682B4;
+    background: #FFE4C4;
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -54,7 +54,7 @@ body {
 }
 
 .form button:hover, .form button:active, .form button:focus {
-    background: #4158d0;
+    background: #4682B4;
 }
 
 .form .message {
@@ -64,7 +64,7 @@ body {
 }
 
 .form .message a {
-    color: #9053c7;
+    color: #4682B4;
     text-decoration: none;
 }
 
