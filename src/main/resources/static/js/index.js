@@ -64,7 +64,7 @@ $(document).ready(function () {
         var task_data = '';
         task_data += '<tr class="to_add">';
         task_data += '<td> <input type="text" name="title" id="task_title"> </td>';
-        task_data += '<td> NN </td>';
+        task_data += '<td>  </td>';
         task_data += '<td> <input type="date" id="deadline" name="deadline" value="2018-07-29" min="2018-01-01" max="2018-12-31"/> </td>';
         task_data += '<td> <input type="image" src="img/img1.svg" class="close_task_form" width="20" height="20">';
         task_data += '<input type="image" src="img/img2.png" class="send_task_form" width="25" height="25"> </td>';

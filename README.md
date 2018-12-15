@@ -1,13 +1,7 @@
 # Simple project for studying Spring Boot:
-1. Refactor services.
-2. Design index.html.
-3. Add opportunity reset password.
-4. Add opportunity to login with gmail(facebook account). 
-5. Update EER diagram.
-6. Add spring tests.
 
 # EER diagram:
-![hibernate](https://user-images.githubusercontent.com/17299069/47139391-671a4d00-d2c4-11e8-89fc-4f0a184b0c65.png)
+![erp diagram](https://user-images.githubusercontent.com/17299069/50039441-650e0980-003b-11e9-96d4-43e7d1403e18.png)
 
 # Example of usage:
 Registration page:
