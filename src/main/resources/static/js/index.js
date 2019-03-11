@@ -76,9 +76,22 @@ $(document).ready(function () {
         });
 
         $("input.send_task_form").click(function () {
-            // need to add some code here
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "http://localhost:8080/api/task/add",
+                data: JSON.stringify({
+                    title: $("#task_title").val(),
+                    projectName: $("#project_name").val(),
+                    deadline: $("#deadline").val()
+                }),
+                timeout: 100000,
+                success: function (response) {
+                },
+                error: function (e) {
+                }
+            });
         });
-
     });
 
     $("button.add_project").click(function () {

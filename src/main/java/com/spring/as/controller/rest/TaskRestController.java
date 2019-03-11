@@ -1,8 +1,11 @@
 package com.spring.as.controller.rest;
 
 import com.spring.as.dto.AddTaskDTO;
+import com.spring.as.model.Project;
 import com.spring.as.model.Task;
+import com.spring.as.service.ProjectService;
 import com.spring.as.service.TaskServiceImpl;
+import com.spring.as.service.UserService;
 import com.spring.as.validation.ErrorDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +23,12 @@ public class TaskRestController {
     @Autowired
     private TaskServiceImpl taskService;
 
+    @Autowired
+    private ProjectService projectService;
+
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/all")
     List<Task> getAll() {
         return taskService.getAllTasks();
@@ -31,6 +40,15 @@ public class TaskRestController {
         if (bindingResult.hasErrors())
             return new ResponseEntity<>(new ErrorDetails(HttpStatus.BAD_REQUEST.toString(), bindingResult),
                     HttpStatus.BAD_REQUEST);
+
+        if (taskDTO.getProjectName() == null) {
+            // add task to default project
+            if(!projectService.isDefaultProjectPresent()){
+                Project project = projectService.createDefaultProject();
+                taskDTO.setProjectName(project.getName());
+            }
+            taskDTO.setProjectName("Default");
+        }
         taskService.createTask(taskDTO);
         return new ResponseEntity(HttpStatus.CREATED);
     }

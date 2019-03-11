@@ -23,7 +23,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private UserServiceImpl userService;
 
-    public void createProject(Project project) {
+    public Project createProject(Project project) {
         User user = userService.getAuthorizedUser();
 
         if (isProjectPresent(project.getName()))
@@ -35,6 +35,7 @@ public class ProjectServiceImpl implements ProjectService {
         projects.add(project);
         user.setProjects(projects);
         userService.update(user);
+        return project;
     }
 
     public void deleteProject(Long id) {
@@ -58,6 +59,17 @@ public class ProjectServiceImpl implements ProjectService {
         throw new IllegalArgumentException(env.getProperty("project.not_found"));
     }
 
+    @Override
+    public Project createDefaultProject() {
+        return createProject(Project.builder().name("Default").build());
+    }
+
+    @Override
+    public boolean isDefaultProjectPresent() {
+        return isProjectPresent("Default");
+    }
+
+    @Override
     public boolean isProjectPresent(String projectName) {
         User user = userService.getAuthorizedUser();
         List<Project> projects = projectDAO.read(user);

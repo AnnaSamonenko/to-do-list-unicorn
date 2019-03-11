@@ -1,12 +1,17 @@
 package com.spring.as.service;
 
 import com.spring.as.model.Project;
+import com.spring.as.model.User;
 
 import java.util.List;
 
 public interface ProjectService {
 
-    void createProject(Project project);
+    boolean isDefaultProjectPresent();
+
+    Project createDefaultProject();
+
+    Project createProject(Project project);
 
     void deleteProject(Long id);
 
