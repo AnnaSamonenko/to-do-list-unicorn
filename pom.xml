@@ -18,6 +18,7 @@
         <lombok.version>1.16.8</lombok.version>
         <postgresql.verion>9.1-901.jdbc4</postgresql.verion>
         <mysql.version>8.0.13</mysql.version>
+        <springfox-swagger.version>2.9.2</springfox-swagger.version>
     </properties>
 
     <dependencies>
@@ -81,6 +82,18 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>5.2.10.Final</version>
             <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-swagger.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger.version}</version>
         </dependency>
     </dependencies>
 
