@@ -12,14 +12,12 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.validation.Validator;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-public class PersistenceConfig implements WebMvcConfigurer {
+public class PersistenceConfig {
 
     @Value("${spring.datasource.username}")
     private String dbUsername;
@@ -93,7 +91,7 @@ public class PersistenceConfig implements WebMvcConfigurer {
         return source;
     }
 
-    @Override
+    @Bean
     public Validator getValidator() {
         LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
         validator.setValidationMessageSource(messageSource());
