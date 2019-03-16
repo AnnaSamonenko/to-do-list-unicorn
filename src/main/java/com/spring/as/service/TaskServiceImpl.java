@@ -1,7 +1,7 @@
 package com.spring.as.service;
 
 import com.spring.as.repository.TaskDAO;
-import com.spring.as.dto.AddTaskDTO;
+import com.spring.as.dto.TaskDTO;
 import com.spring.as.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -25,7 +25,7 @@ public class TaskServiceImpl implements TaskService {
     private Environment env;
 
     @Override
-    public Task createTask(AddTaskDTO taskDTO) {
+    public Task createTask(TaskDTO taskDTO) {
         if (!projectService.isProjectPresent(taskDTO.getProjectName()))
             throw new IllegalArgumentException(env.getProperty("project.not_found"));
         Task task = new Task();

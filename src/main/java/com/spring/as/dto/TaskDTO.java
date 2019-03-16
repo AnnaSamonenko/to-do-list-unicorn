@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
-public class AddTaskDTO {
+public class TaskDTO {
 
     @Getter
     @Setter

@@ -18,9 +18,6 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
     private UserService service;
 
     @Autowired
-    private MessageSource messages;
-
-    @Autowired
     private JavaMailSender mailSender;
 
     @Override

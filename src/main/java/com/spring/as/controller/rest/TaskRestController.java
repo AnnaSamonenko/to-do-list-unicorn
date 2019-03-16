@@ -1,6 +1,6 @@
 package com.spring.as.controller.rest;
 
-import com.spring.as.dto.AddTaskDTO;
+import com.spring.as.dto.TaskDTO;
 import com.spring.as.model.Project;
 import com.spring.as.model.Task;
 import com.spring.as.service.ProjectService;
@@ -35,7 +35,7 @@ public class TaskRestController {
     }
 
     @PostMapping("/add")
-    ResponseEntity create(@RequestBody @Valid AddTaskDTO taskDTO, BindingResult bindingResult) {
+    ResponseEntity create(@RequestBody @Valid TaskDTO taskDTO, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors())
             return new ResponseEntity<>(new ErrorDetails(HttpStatus.BAD_REQUEST.toString(), bindingResult),

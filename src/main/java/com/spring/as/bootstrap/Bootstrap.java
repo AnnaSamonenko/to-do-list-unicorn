@@ -22,8 +22,8 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
     private static final String EMAIL = "anna_samonenko@gmail.com";
     private static final String PASSWORD = "123456";
     private static final String USERNAME = "anna_samonenko";
-    private static final String PROJECT_NAME_1 = "HOME";
-    private static final String PROJECT_NAME_2 = "STUDY";
+    private static final String PROJECT_NAME_1 = "Trainings";
+    private static final String PROJECT_NAME_2 = "Books";
 
     @Autowired
     private UserDAO userDAO;

@@ -22,6 +22,7 @@ $(document).ready(function () {
         $.each(data, function (key, value) {
             task_data += '<tr>';
             task_data += '<td>' + value.name + '</td>';
+            task_data += '<td><input type="image" src="img/trash_can.png" class="remove_project" width="25" height="25"></td>';
             task_data += '</tr>';
         });
         $('table.projects').append(task_data);
@@ -69,11 +70,11 @@ $(document).ready(function () {
         task_data += '<input type="image" src="img/img2.png" class="send_task_form" width="25" height="25"></td></tr>';
 
         $('table.tasks').append(task_data);
-        $('input.add_project').attr('disabled', true);
+        $('input.add_task').attr('disabled', true);
 
         $("input.close_task_form").click(function () {
             $('table.tasks tr:last').remove();
-            $('input.add_project').attr('disabled', false);
+            $('input.add_task').attr('disabled', false);
         });
 
         $("input.send_task_form").click(function () {
