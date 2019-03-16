@@ -23,7 +23,7 @@ body {
 
 }
 
-.projects {
+#projects {
     height: 100%;
     float: left;
     width: 20%;

@@ -1,19 +1,4 @@
 $(document).ready(function () {
-    $("#submit_project_form").click(function () {
-        $.ajax({
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            url: "http://localhost:8080/api/project/add",
-            data: JSON.stringify({
-                name: $("#title").val()
-            }),
-            timeout: 100000,
-            success: function (response) {
-            },
-            error: function (e) {
-            }
-        });
-    });
 
     // render all tasks
     $.ajax({
@@ -23,7 +8,6 @@ $(document).ready(function () {
         $.each(data, function (key, value) {
             task_data += '<tr>';
             task_data += '<td>' + value.title + '</td>';
-            task_data += '<td>' + value.date + '</td>';
             task_data += '<td>' + value.date + '</td>';
             task_data += '<td>' + value.deadline + '</td>';
             task_data += '<td> <input type="image" src="img/img2.png" class="ADDCLASSHERE" width="25" height="25"> </td>';
@@ -45,18 +29,38 @@ $(document).ready(function () {
         $('table.projects_table').append(task_data);
     });
 
-    $(".add_project").click(function(){
-        var project_data = '';
-        project_data += '<tr class="to_add">';
+    // add project
+    $("input.add_project").click(function(){
+        var project_data = '<tr class="to_add">';
         project_data += '<td> <input type="text" name="title" id="project_name"> </td>';
         project_data += '<td> <input type="image" src="img/img1.svg" class="close_project_form" width="20" height="20">';
         project_data += '<input type="image" src="img/img2.png" class="send_project_form" width="25" height="25"> </td>';
 
-        $('table.projects').append(project_data);
+        $('.projects_table').append(project_data);
+
+        $("input.close_project_form").click(function () {
+            $('table tr:last').remove();
+        });
+
+        $(".send_project_form").click(function () {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "http://localhost:8080/api/project/add",
+                data: JSON.stringify({
+                    name: $("#project_name").val()
+                }),
+                timeout: 100000,
+                success: function (response) {
+                },
+                error: function (e) {
+                }
+            });
+        });
     });
 
-    // render form for add task
-    $(".add_task").click(function () {
+    // add task
+    $("input.add_task").click(function () {
         var task_data = '';
         task_data += '<tr class="to_add">';
         task_data += '<td> <input type="text" name="title" id="task_title"> </td>';
@@ -90,11 +94,4 @@ $(document).ready(function () {
         });
     });
 
-    $("button.add_project").click(function () {
-        $(".new_project_form").show();
-    });
-
-    $(".close_project_form").click(function () {
-        $(".new_project_form").hide();
-    });
 });
