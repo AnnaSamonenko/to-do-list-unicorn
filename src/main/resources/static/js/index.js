@@ -6,12 +6,10 @@ $(document).ready(function () {
     }).then(function (data) {
         var task_data = '';
         $.each(data, function (key, value) {
-            task_data += '<tr>';
-            task_data += '<td>' + value.title + '</td>';
+            task_data += '<tr><td>' + value.title + '</td>';
             task_data += '<td>' + value.date + '</td>';
             task_data += '<td>' + value.deadline + '</td>';
-            task_data += '<td> <input type="image" src="img/img2.png" class="ADDCLASSHERE" width="25" height="25"> </td>';
-            task_data += '</tr>';
+            task_data += '<td><input type="image" src="img/img2.png" class="ADDCLASSHERE" width="25" height="25"> </td></tr>';
         });
         $('table.tasks').append(task_data);
     });
@@ -26,7 +24,7 @@ $(document).ready(function () {
             task_data += '<td>' + value.name + '</td>';
             task_data += '</tr>';
         });
-        $('table.projects_table').append(task_data);
+        $('table.projects').append(task_data);
     });
 
     // add project
@@ -36,10 +34,12 @@ $(document).ready(function () {
         project_data += '<td> <input type="image" src="img/img1.svg" class="close_project_form" width="20" height="20">';
         project_data += '<input type="image" src="img/img2.png" class="send_project_form" width="25" height="25"> </td>';
 
-        $('.projects_table').append(project_data);
+        $('.projects').append(project_data);
+        $('input.add_project').attr('disabled', true);
 
         $("input.close_project_form").click(function () {
-            $('table tr:last').remove();
+            $('table.projects tr:last').remove();
+            $('input.add_project').attr('disabled', false);
         });
 
         $(".send_project_form").click(function () {
@@ -61,18 +61,19 @@ $(document).ready(function () {
 
     // add task
     $("input.add_task").click(function () {
-        var task_data = '';
-        task_data += '<tr class="to_add">';
-        task_data += '<td> <input type="text" name="title" id="task_title"> </td>';
-        task_data += '<td>  </td>';
-        task_data += '<td> <input type="date" id="deadline" name="deadline" value="2019-12-12"/> </td>';
-        task_data += '<td> <input type="image" src="img/img1.svg" class="close_task_form" width="20" height="20">';
-        task_data += '<input type="image" src="img/img2.png" class="send_task_form" width="25" height="25"> </td>';
-        task_data += '</tr>';
+        var task_data = '<tr class="to_add">';
+        task_data += '<td><input type="text" name="title" id="task_title"> </td>';
+        task_data += '<td></td>';
+        task_data += '<td><input type="date" id="deadline" name="deadline" value="2019-12-12"/></td>';
+        task_data += '<td><input type="image" src="img/img1.svg" class="close_task_form" width="20" height="20">';
+        task_data += '<input type="image" src="img/img2.png" class="send_task_form" width="25" height="25"></td></tr>';
+
         $('table.tasks').append(task_data);
+        $('input.add_project').attr('disabled', true);
 
         $("input.close_task_form").click(function () {
-            $('table tr:last').remove();
+            $('table.tasks tr:last').remove();
+            $('input.add_project').attr('disabled', false);
         });
 
         $("input.send_task_form").click(function () {
