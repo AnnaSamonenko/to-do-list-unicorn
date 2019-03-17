@@ -51,3 +51,9 @@ img.design_guru {
     right: 0px;
     bottom: 0px;
 }
+
+.date {
+    font-style: italic;
+    font-size: small;
+    color: darkgrey;
+}
