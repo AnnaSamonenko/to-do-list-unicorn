@@ -43,7 +43,7 @@ public class TaskRestController {
 
         if (taskDTO.getProjectName() == null) {
             // add task to default project
-            if(!projectService.isDefaultProjectPresent()){
+            if (!projectService.isDefaultProjectPresent()) {
                 Project project = projectService.createDefaultProject();
                 taskDTO.setProjectName(project.getName());
             }

@@ -12,13 +12,13 @@ body {
 }
 
 .content {
-    height: 90%;
+    height: 78%;
     margin-top: 20px;
 
 }
 
 #projects {
-    height: 100%;
+    height: 80%;
     float: left;
     width: 20%;
     background-color: #FFFFFF;
@@ -26,7 +26,7 @@ body {
 
 #tasks {
     margin-right: 30px;
-    height: 100%;
+    height: 80%;
     float: right;
     width: 75%;
     background-color: #FFFFFF;
@@ -46,7 +46,7 @@ nav {
 }
 
 img.design_guru {
-    height: 35%;
+    height: 250%;
     position: absolute;
     right: 0px;
     bottom: 0px;
@@ -56,4 +56,9 @@ img.design_guru {
     font-style: italic;
     font-size: small;
     color: darkgrey;
+}
+
+footer {
+    position: relative;
+    background: #FFE4C4;
 }
