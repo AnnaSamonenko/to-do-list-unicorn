@@ -9,7 +9,7 @@ $(document).ready(function () {
             task_data += '<tr><td>' + value.title + '</td>';
             task_data += '<td>' + value.date + '</td>';
             task_data += '<td>' + value.deadline + '</td>';
-            task_data += '<td><input type="image" src="img/img2.png" class="ADDCLASSHERE" width="25" height="25"> </td></tr>';
+            task_data += '<td><input type="image" src="img/done.png" class="ADDCLASSHERE" width="25" height="25"> </td></tr>';
         });
         $('table.tasks').append(task_data);
     });
@@ -22,7 +22,7 @@ $(document).ready(function () {
         $.each(data, function (key, value) {
             task_data += '<tr>';
             task_data += '<td>' + value.name + '</td>';
-            task_data += '<td><input type="image" src="img/trash_can.png" class="remove_project" width="25" height="25"></td>';
+            task_data += '<td><input type="image" src="img/trash.png" class="remove_project" width="25" height="25"></td>';
             task_data += '</tr>';
         });
         $('table.projects').append(task_data);
@@ -32,8 +32,8 @@ $(document).ready(function () {
     $("input.add_project").click(function(){
         var project_data = '<tr class="to_add">';
         project_data += '<td> <input type="text" name="title" id="project_name"> </td>';
-        project_data += '<td> <input type="image" src="img/img1.svg" class="close_project_form" width="20" height="20">';
-        project_data += '<input type="image" src="img/img2.png" class="send_project_form" width="25" height="25"> </td>';
+        project_data += '<td> <input type="image" src="img/close.svg" class="close_project_form" width="20" height="20">';
+        project_data += '<input type="image" src="img/done.png" class="send_project_form" width="25" height="25"> </td>';
 
         $('.projects').append(project_data);
         $('input.add_project').attr('disabled', true);
@@ -66,8 +66,8 @@ $(document).ready(function () {
         task_data += '<td><input type="text" name="title" id="task_title"> </td>';
         task_data += '<td></td>';
         task_data += '<td><input type="date" id="deadline" name="deadline" value="2019-12-12"/></td>';
-        task_data += '<td><input type="image" src="img/img1.svg" class="close_task_form" width="20" height="20">';
-        task_data += '<input type="image" src="img/img2.png" class="send_task_form" width="25" height="25"></td></tr>';
+        task_data += '<td><input type="image" src="img/close.svg" class="close_task_form" width="20" height="20">';
+        task_data += '<input type="image" src="img/done.png" class="send_task_form" width="25" height="25"></td></tr>';
 
         $('table.tasks').append(task_data);
         $('input.add_task').attr('disabled', true);

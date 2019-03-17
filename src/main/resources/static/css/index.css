@@ -9,14 +9,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.new_project_form {
-    display: none;
-}
-
-.new_task_form {
-    display: none;
-}
-
 .content {
     height: 90%;
     margin-top: 20px;
@@ -47,7 +39,6 @@ a:hover {
 }
 
 nav {
-    background-image: url(/img/texture.png);
     background: #FFE4C4;
     color: black;
 }

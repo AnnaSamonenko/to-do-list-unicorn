@@ -1,9 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 body {
-    background-image: url(/img/texture.png);
+    background: url(https://www.pngarts.com/files/4/Unicorn-PNG-Image.png) #FFE4C4 no-repeat;
     height: 100%;
-    background: #FFE4C4;
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
