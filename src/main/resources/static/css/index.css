@@ -42,3 +42,10 @@ nav {
     background: #FFE4C4;
     color: black;
 }
+
+img.design_guru {
+    height: 35%;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
