@@ -19,6 +19,7 @@
         <postgresql.verion>9.1-901.jdbc4</postgresql.verion>
         <mysql.version>8.0.13</mysql.version>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
+        <modelmapper.version>2.3.2</modelmapper.version>
     </properties>
 
     <dependencies>
@@ -94,6 +95,12 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${springfox-swagger.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>${modelmapper.version}</version>
         </dependency>
     </dependencies>
 
