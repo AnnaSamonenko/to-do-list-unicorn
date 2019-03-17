@@ -1,7 +1,6 @@
 package com.gmail.samonenko.service;
 
 import com.gmail.samonenko.repository.TaskDAO;
-import com.gmail.samonenko.dto.TaskDTO;
 import com.gmail.samonenko.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
@@ -19,20 +18,11 @@ public class TaskServiceImpl implements TaskService {
     private TaskDAO taskDAO;
 
     @Autowired
-    private ProjectServiceImpl projectService;
-
-    @Autowired
     private Environment env;
 
     @Override
-    public Task createTask(TaskDTO taskDTO) {
-        if (!projectService.isProjectPresent(taskDTO.getProjectName()))
-            throw new IllegalArgumentException(env.getProperty("project.not_found"));
-        Task task = new Task();
+    public Task createTask(Task task) {
         task.setDate(LocalDate.now());
-        task.setDeadline(taskDTO.getDeadline());
-        task.setTitle(taskDTO.getTitle());
-        task.setProject(projectService.findProjectByProjectName(taskDTO.getProjectName()));
         taskDAO.create(task);
         return task;
     }

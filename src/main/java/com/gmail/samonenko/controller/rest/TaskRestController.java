@@ -5,8 +5,8 @@ import com.gmail.samonenko.model.Project;
 import com.gmail.samonenko.model.Task;
 import com.gmail.samonenko.service.ProjectService;
 import com.gmail.samonenko.service.TaskServiceImpl;
-import com.gmail.samonenko.service.UserService;
 import com.gmail.samonenko.validation.ErrorDetails;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +27,7 @@ public class TaskRestController {
     private ProjectService projectService;
 
     @Autowired
-    private UserService userService;
+    private ModelMapper mapper;
 
     @GetMapping("/all")
     List<Task> getAll() {
@@ -49,7 +49,9 @@ public class TaskRestController {
             }
             taskDTO.setProjectName("Default");
         }
-        taskService.createTask(taskDTO);
+        Task task = mapper.map(taskDTO, Task.class);
+        task.setProject(projectService.findProjectByProjectName(taskDTO.getProjectName()));
+        taskService.createTask(task);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
