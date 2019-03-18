@@ -28,7 +28,7 @@ public class Project {
     @NotBlank(message = "{project.name.not_empty}")
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "project")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "project", cascade = CascadeType.REMOVE)
     private List<Task> tasks;
 
     @JsonIgnore

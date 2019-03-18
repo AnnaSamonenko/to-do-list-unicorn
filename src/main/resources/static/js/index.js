@@ -21,10 +21,23 @@ $(document).ready(function () {
         $.each(data, function (key, value) {
             task_data += '<tr>';
             task_data += '<td>' + value.name + '</td>';
-            task_data += '<td><input type="image" src="img/trash.png" class="remove_project" width="25" height="25"></td>';
+            task_data += '<td><input type="image" id="' + value.id +'" src="img/trash.png" class="remove_project" width="25" height="25"></td>';
             task_data += '</tr>';
         });
         $('table.projects').append(task_data);
+
+        $('.remove_project').click(function (event) {
+            $.ajax({
+                type: "DELETE",
+                url: "http://localhost:8080/api/project/" + event.target.id,
+                timeout: 100000,
+                success: function () {
+                    location.reload();
+                },
+                error: function () {
+                }
+            });
+        })
     });
 
     // add project
@@ -51,7 +64,8 @@ $(document).ready(function () {
                     name: $("#project_name").val()
                 }),
                 timeout: 100000,
-                success: function (response) {
+                success: function () {
+                    location.reload();
                 },
                 error: function (e) {
                 }
@@ -86,7 +100,8 @@ $(document).ready(function () {
                     deadline: $("#deadline").val()
                 }),
                 timeout: 100000,
-                success: function (response) {
+                success: function () {
+                    location.reload();
                 },
                 error: function (e) {
                 }

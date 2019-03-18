@@ -42,7 +42,7 @@ public class ProjectRestController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteProject(long id) {
+    public ResponseEntity deleteProject(@PathVariable Long id) {
         projectService.deleteProject(id);
         return new ResponseEntity(HttpStatus.ACCEPTED);
     }
