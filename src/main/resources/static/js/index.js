@@ -8,7 +8,8 @@ $(document).ready(function () {
         $.each(data, function (key, value) {
             task_data += '<tr><td>' + value.title + '<div class="date">' + value.date + '</div></td>';
             task_data += '<td>' + value.deadline + '</td>';
-            task_data += '<td><input type="image" src="img/done.png" class="ADDCLASSHERE" width="25" height="25"> </td></tr>';
+            task_data += '<td><input type="image" src="img/done.png" class="ADDCLASSHERE" width="25" height="25">';
+            task_data += '<input type="image" src="img/update.png" class="ADDCLASSHERE" width="25" height="25"> </td></tr>';
         });
         $('table.tasks').append(task_data);
     });
@@ -17,14 +18,14 @@ $(document).ready(function () {
     $.ajax({
         url: "http://localhost:8080/api/project/all"
     }).then(function (data) {
-        var task_data = '';
+        var project_data = '';
         $.each(data, function (key, value) {
-            task_data += '<tr>';
-            task_data += '<td>' + value.name + '</td>';
-            task_data += '<td><input type="image" id="' + value.id +'" src="img/trash.png" class="remove_project" width="25" height="25"></td>';
-            task_data += '</tr>';
+            project_data += '<tr>';
+            project_data += '<td>' + value.name + '</td>';
+            project_data += '<td><input type="image" id="' + value.id +'" src="img/trash.png" class="remove_project" width="25" height="25"></td>';
+            project_data += '</tr>';
         });
-        $('table.projects').append(task_data);
+        $('table.projects').append(project_data);
 
         $('.remove_project').click(function (event) {
             $.ajax({
