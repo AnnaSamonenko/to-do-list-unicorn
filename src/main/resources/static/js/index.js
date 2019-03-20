@@ -8,10 +8,12 @@ $(document).ready(function () {
         $.each(data, function (key, value) {
             task_data += '<tr><td>' + value.title + '<div class="date">' + value.date + '</div></td>';
             task_data += '<td>' + value.deadline + '</td>';
+            task_data += '<td>' + value.status + '</td>';
             task_data += '<td><input type="image" src="img/done.png" class="ADDCLASSHERE" width="25" height="25">';
             task_data += '<input type="image" src="img/update.png" class="ADDCLASSHERE" width="25" height="25"> </td></tr>';
         });
         $('table.tasks').append(task_data);
+
     });
 
     // render all projects
@@ -79,6 +81,7 @@ $(document).ready(function () {
         var task_data = '<tr class="to_add">';
         task_data += '<td><input type="text" name="title" id="task_title"> </td>';
         task_data += '<td><input type="date" id="deadline" name="deadline" value="2019-12-12"/></td>';
+        task_data += '<td></td>';
         task_data += '<td><input type="image" src="img/close.svg" class="close_task_form" width="20" height="20">';
         task_data += '<input type="image" src="img/done.png" class="send_task_form" width="25" height="25"></td></tr>';
 

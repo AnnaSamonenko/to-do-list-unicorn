@@ -1,6 +1,7 @@
 package com.gmail.samonenko.bootstrap;
 
 import com.gmail.samonenko.model.Project;
+import com.gmail.samonenko.model.Status;
 import com.gmail.samonenko.model.Task;
 import com.gmail.samonenko.model.User;
 import com.gmail.samonenko.repository.ProjectDAO;
@@ -73,6 +74,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
                 .date(LocalDate.now())
                 .deadline(LocalDate.now().plusDays(1))
                 .project(project)
+                .status(Status.NEW)
                 .build();
 
         taskDAO.create(task);

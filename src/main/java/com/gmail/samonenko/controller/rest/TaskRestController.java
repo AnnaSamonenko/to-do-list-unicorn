@@ -2,6 +2,7 @@ package com.gmail.samonenko.controller.rest;
 
 import com.gmail.samonenko.dto.TaskDTO;
 import com.gmail.samonenko.model.Project;
+import com.gmail.samonenko.model.Status;
 import com.gmail.samonenko.model.Task;
 import com.gmail.samonenko.service.ProjectService;
 import com.gmail.samonenko.service.TaskServiceImpl;
@@ -51,6 +52,7 @@ public class TaskRestController {
         }
         Task task = mapper.map(taskDTO, Task.class);
         task.setProject(projectService.findProjectByProjectName(taskDTO.getProjectName()));
+        task.setStatus(Status.NEW);
         taskService.createTask(task);
         return new ResponseEntity(HttpStatus.CREATED);
     }

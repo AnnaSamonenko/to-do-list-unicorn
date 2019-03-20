@@ -31,6 +31,9 @@ public class Task {
     @Column(name = "deadline")
     private LocalDate deadline;
 
+    @Column(name = "status")
+    private Status status;
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id", nullable = false)
