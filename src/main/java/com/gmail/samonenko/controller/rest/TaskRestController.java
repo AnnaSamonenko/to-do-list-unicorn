@@ -5,7 +5,7 @@ import com.gmail.samonenko.model.Project;
 import com.gmail.samonenko.model.Status;
 import com.gmail.samonenko.model.Task;
 import com.gmail.samonenko.service.ProjectService;
-import com.gmail.samonenko.service.TaskServiceImpl;
+import com.gmail.samonenko.service.TaskService;
 import com.gmail.samonenko.validation.ErrorDetails;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ import java.util.List;
 public class TaskRestController {
 
     @Autowired
-    private TaskServiceImpl taskService;
+    private TaskService taskService;
 
     @Autowired
     private ProjectService projectService;
@@ -66,6 +66,12 @@ public class TaskRestController {
     public ResponseEntity delete(@PathVariable("id") long id) {
         taskService.deleteTask(id);
         return new ResponseEntity(HttpStatus.ACCEPTED);
+    }
+
+    @PutMapping("/status/{id}")
+    public ResponseEntity updateStatusToDone(@PathVariable("id") long id) {
+        taskService.setDoneStatus(id);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
 }

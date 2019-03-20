@@ -21,7 +21,7 @@ public class ProjectServiceImpl implements ProjectService {
     private ProjectDAO projectDAO;
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
     @Override
     public Project createProject(Project project) {

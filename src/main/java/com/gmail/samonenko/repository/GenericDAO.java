@@ -1,5 +1,7 @@
 package com.gmail.samonenko.repository;
 
+import com.gmail.samonenko.model.Task;
+
 import java.util.List;
 
 public interface GenericDAO<T, U> {
@@ -10,7 +12,7 @@ public interface GenericDAO<T, U> {
 
     List<T> getAll();
 
-    void update(T t);
+    T update(T t);
 
     void create(T t);
 

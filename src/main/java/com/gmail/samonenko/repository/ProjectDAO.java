@@ -1,6 +1,7 @@
 package com.gmail.samonenko.repository;
 
 import com.gmail.samonenko.model.Project;
+import com.gmail.samonenko.model.Task;
 import com.gmail.samonenko.model.User;
 import org.springframework.stereotype.Repository;
 
@@ -48,8 +49,8 @@ public class ProjectDAO implements GenericDAO<Project, Long> {
     }
 
     @Override
-    public void update(Project pr) {
-        em.merge(pr);
+    public Project update(Project pr) {
+        return em.merge(pr);
     }
     
     @Override

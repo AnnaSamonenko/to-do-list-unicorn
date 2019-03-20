@@ -1,5 +1,6 @@
 package com.gmail.samonenko.service;
 
+import com.gmail.samonenko.model.Status;
 import com.gmail.samonenko.repository.TaskDAO;
 import com.gmail.samonenko.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +48,12 @@ public class TaskServiceImpl implements TaskService {
     private void verifyingOfTaskPresence(long id) {
         if (taskDAO.read(id) == null)
             throw new IllegalArgumentException(env.getProperty("task.not_fount") + " " + id);
+    }
+
+    @Override
+    public Task setDoneStatus(long id) {
+        Task task = taskDAO.read(id);
+        task.setStatus(Status.DONE);
+        return taskDAO.update(task);
     }
 }

@@ -20,8 +20,8 @@ public class TaskDAO implements GenericDAO<Task, Long> {
     }
 
     @Override
-    public void update(Task task) {
-        em.merge(task);
+    public Task update(Task task) {
+        return em.merge(task);
     }
 
     @Override

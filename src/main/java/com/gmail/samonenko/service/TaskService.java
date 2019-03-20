@@ -14,4 +14,6 @@ public interface TaskService {
 
     void deleteTask(long id);
 
+    Task setDoneStatus(long id);
+
 }

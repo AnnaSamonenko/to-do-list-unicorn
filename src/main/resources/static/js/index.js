@@ -8,11 +8,26 @@ $(document).ready(function () {
         $.each(data, function (key, value) {
             task_data += '<tr><td>' + value.title + '<div class="date">' + value.date + '</div></td>';
             task_data += '<td>' + value.deadline + '</td>';
-            task_data += '<td>' + value.status + '</td>';
-            task_data += '<td><input type="image" src="img/done.png" class="ADDCLASSHERE" width="25" height="25">';
-            task_data += '<input type="image" src="img/update.png" class="ADDCLASSHERE" width="25" height="25"> </td></tr>';
+            task_data += '<td>' + value.status + '</td><td>';
+            if(value.status == 'NEW') {
+                task_data += '<input type="image" src="img/done.png" id="'+value.id+'" class="status" width="25" height="25">';
+            }
+            task_data += '<input type="image" src="img/update.png" id="'+value.id+'" width="25" height="25"> </td></tr>';
         });
         $('table.tasks').append(task_data);
+        
+        $('.status').click(function (event) {
+            $.ajax({
+                type: "PUT",
+                url: "http://localhost:8080/api/task/status/" + event.target.id,
+                timeout: 100000,
+                success: function () {
+                    location.reload();
+                },
+                error: function () {
+                }
+            });
+        })
 
     });
 

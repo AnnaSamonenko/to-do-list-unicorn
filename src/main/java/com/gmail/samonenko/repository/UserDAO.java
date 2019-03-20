@@ -29,8 +29,8 @@ public class UserDAO implements GenericDAO<User, String> {
     }
 
     @Override
-    public void update(User u) {
-        em.merge(u);
+    public User update(User u) {
+        return em.merge(u);
     }
 
     @Override
