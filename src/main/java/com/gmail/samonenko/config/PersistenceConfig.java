@@ -32,7 +32,7 @@ public class PersistenceConfig {
     @Value("${hibernate.dialect}")
     private String jpaHibernateDialect;
 
-    @Profile({"test", "prod"})
+    @Profile("prod")
     @Bean
     public LocalContainerEntityManagerFactoryBean prodEntityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em
