@@ -12,7 +12,8 @@ $(document).ready(function () {
             if(value.status == 'NEW') {
                 task_data += '<input type="image" src="img/done.png" id="'+value.id+'" class="status" width="25" height="25">';
             }
-            task_data += '<input type="image" src="img/update.png" id="'+value.id+'" width="25" height="25"> </td></tr>';
+            task_data += '<input type="image" src="img/update.png" id="'+value.id+'" class="update_task" width="25" height="25">';
+            task_data += '<input type="image" src="img/trash.png" id="'+value.id+'" class="remove_task" width="25" height="25"></td></tr>';
         });
         $('table.tasks').append(task_data);
         
@@ -29,6 +30,18 @@ $(document).ready(function () {
             });
         })
 
+        $('.remove_task').click(function(event){
+            $.ajax({
+                type: "DELETE",
+                url: "http://localhost:8080/api/task/" + event.target.id,
+                timeout: 100000,
+                success: function () {
+                    location.reload();
+                },
+                error: function () {
+                }
+            });
+        })
     });
 
     // render all projects
