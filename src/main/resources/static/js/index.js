@@ -25,7 +25,17 @@ $(document).ready(function () {
                 success: function () {
                     location.reload();
                 },
-                error: function () {
+                error: function(XMLHttpRequest) {
+                    var errorJSON = JSON.parse(XMLHttpRequest.responseText);
+
+                    var errors = "";
+                    for(var key in errorJSON) {
+                        if(errorJSON.hasOwnProperty(key)) {
+                            errors += errorJSON[key] + "\n";
+                        }
+                    }
+                    alert(errors);
+                    location.reload();
                 }
             });
         })
@@ -38,7 +48,17 @@ $(document).ready(function () {
                 success: function () {
                     location.reload();
                 },
-                error: function () {
+                error: function(XMLHttpRequest) {
+                    var errorJSON = JSON.parse(XMLHttpRequest.responseText);
+
+                    var errors = "";
+                    for(var key in errorJSON) {
+                        if(errorJSON.hasOwnProperty(key)) {
+                            errors += errorJSON[key] + "\n";
+                        }
+                    }
+                    alert(errors);
+                    location.reload();
                 }
             });
         })
@@ -65,7 +85,17 @@ $(document).ready(function () {
                 success: function () {
                     location.reload();
                 },
-                error: function () {
+                error: function(XMLHttpRequest) {
+                    var errorJSON = JSON.parse(XMLHttpRequest.responseText);
+
+                    var errors = "";
+                    for(var key in errorJSON) {
+                        if(errorJSON.hasOwnProperty(key)) {
+                            errors += errorJSON[key] + "\n";
+                        }
+                    }
+                    alert(errors);
+                    location.reload();
                 }
             });
         })
@@ -98,7 +128,17 @@ $(document).ready(function () {
                 success: function () {
                     location.reload();
                 },
-                error: function (e) {
+                error: function(XMLHttpRequest) {
+                    var errorJSON = JSON.parse(XMLHttpRequest.responseText);
+
+                    var errors = "";
+                    for(var key in errorJSON) {
+                        if(errorJSON.hasOwnProperty(key)) {
+                            errors += errorJSON[key] + "\n";
+                        }
+                    }
+                    alert(errors);
+                    location.reload();
                 }
             });
         });
@@ -135,7 +175,17 @@ $(document).ready(function () {
                 success: function () {
                     location.reload();
                 },
-                error: function (e) {
+                error: function(XMLHttpRequest) {
+                    var errorJSON = JSON.parse(XMLHttpRequest.responseText);
+
+                    var errors = "";
+                    for(var key in errorJSON) {
+                        if(errorJSON.hasOwnProperty(key)) {
+                            errors += errorJSON[key] + "\n";
+                        }
+                    }
+                    alert(errors);
+                    location.reload();
                 }
             });
         });

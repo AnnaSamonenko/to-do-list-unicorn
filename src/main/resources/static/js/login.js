@@ -17,6 +17,7 @@ $(document).ready(function () {
             success: function (response) {
             },
             error: function (e) {
+                alert(e);
             }
         });
     });
@@ -34,6 +35,7 @@ $(document).ready(function () {
             success: function (response) {
             },
             error: function (e) {
+                alert(e);
             }
         });
     });
